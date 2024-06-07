@@ -41,7 +41,9 @@ enum layers {
     SYMBOLS,
 };
 
-enum custom_keycodes { RGB_SLD = SAFE_RANGE,
+enum custom_keycodes { 
+    RGB_SLD = SAFE_RANGE,
+    US_MAG1,
     PWM,
     PWM2,
     KEYUP,
@@ -118,6 +120,7 @@ uint32_t prng(uint32_t min, uint32_t max) {
 }
 
 #include "g/keymap_combo.h"
+#include "sequence_transform/sequence_transform.h"
 #include "mlayout.h"
 
 bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) {
@@ -477,6 +480,7 @@ bool process_my_bspc(uint16_t keycode, keyrecord_t *record) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (get_highest_layer(layer_state) == GRAPHITE) {
+        if (!process_sequence_transform(keycode, record, US_MAG1))
         if (!process_achordion(keycode, record)) return false;
         if (!process_my_bspc(keycode, record)) return false;
     }
@@ -813,6 +817,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void matrix_scan_user(void) {
+    sequence_transform_task();  // Add this line
     achordion_task();
     if (key_held && timer_elapsed(key_timer) > 60) {
         key_timer = timer_read32();
@@ -883,6 +888,10 @@ void matrix_scan_user(void) {
         default:
             break;
     }
+}
+
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    post_process_sequence_transform();  // Add this line
 }
 
 void suspend_power_down_kb(void) {

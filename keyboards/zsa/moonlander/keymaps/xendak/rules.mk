@@ -8,7 +8,7 @@ SPACE_CADET_ENABLE = no
 # DEBOUNCE_TYPE = sym_eager_pk
 
 SRC = matrix.c
-SRC += features/achordion.c
+SRC += achordion/achordion.c
 # SRC += sequence_transform/sequence_transform.c
 # SRC += sequence_transform/utils.c
 
@@ -20,5 +20,10 @@ LEADER_ENABLE = no
 STENO_ENABLE = no
 CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = yes
+
+# sequence_transform setup
+mkfile_dir := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
+include $(mkfile_dir)/sequence_transform/rules.mk
+# end sequence_transform setup
 
 VPATH += keyboards/gboards
