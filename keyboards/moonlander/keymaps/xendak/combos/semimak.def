@@ -1,0 +1,10 @@
+// left hand
+COMB(SEMIL1, KC_ENTER, KC_R, KC_N, KC_T)
+COMB(SEMIL2, KC_QUOTE, KC_W, KC_U)
+
+// right hand
+COMB(SEMIR1, KC_ENTER, KC_D, KC_E, KC_A)
+
+
+// both hands
+COMB(SEMIB1, KC_ESC, LT(7, KC_SPACE), KC_LSFT)
