@@ -17,6 +17,7 @@
           phases = [ "buildPhase" ];
           buildInputs = [ pkgs.qmk ];
           buildPhase = ''
+            qmk setup -H ./qmk_firmware
             make -C $src BUILD_DIR=`pwd`/.build COPY=echo -j8 ${keyboard}:${keymap}
             mkdir $out
             cp -r .build/* $out/

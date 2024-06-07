@@ -2,6 +2,6 @@
     "userspace_version": "1.0",
     "build_targets": [
         ["zsa/moonlander", "xendak"],
-        ["annepro2", "xendak"]
+        ["annepro2/c18", "xendak"]
     ]
 }
