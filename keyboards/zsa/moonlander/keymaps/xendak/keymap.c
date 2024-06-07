@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "quantum.h"
-#include "features/achordion.h"
+#include "achordion/achordion.h"
 
 //[DEFAULT] = LAYOUT_moonlander(
 //        TO(1),      KC_NO,       KC_NO,        KC_NO,       KC_NO,       KC_NO,       KC_NO,             KC_NO,       KC_NO,     KC_NO,     KC_NO,      KC_NO,        KC_NO,         KC_NO,
@@ -41,7 +41,7 @@ enum layers {
     SYMBOLS,
 };
 
-enum custom_keycodes { 
+enum custom_keycodes {
     RGB_SLD = SAFE_RANGE,
     US_MAG1,
     US_MAG2,
