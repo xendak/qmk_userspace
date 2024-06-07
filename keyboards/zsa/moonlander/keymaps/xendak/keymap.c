@@ -44,6 +44,9 @@ enum layers {
 enum custom_keycodes { 
     RGB_SLD = SAFE_RANGE,
     US_MAG1,
+    US_MAG2,
+    US_MAG3,
+    US_MAG4,
     PWM,
     PWM2,
     KEYUP,
