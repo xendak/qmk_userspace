@@ -1,15 +1,10 @@
 // 👆👍★✪
 
-qa      ⇒ qua
-qi      ⇒ qui
-qe      ⇒ que
-qo      ⇒ quo
-qaa    ⇒ qa
-qii    ⇒ qi
-qee    ⇒ qe
-qoo    ⇒ qo
+qe  ⇒ que
+q👆 ⇒ qu
+o👆 ⇒ oa
+a👆 ⇒ ao
 
-judge👍    ⇒ judgment
-
-i👍       ⇒ i'
-I👍       ⇒ I'
+judge👆    ⇒ judgment
+i👆       ⇒ i'
+// I👆       ⇒ I'

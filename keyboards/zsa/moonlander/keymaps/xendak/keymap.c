@@ -481,11 +481,14 @@ bool process_my_bspc(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-
     if (get_highest_layer(layer_state) == GRAPHITE) {
-        if (!process_sequence_transform(keycode, record, US_MAG1))
+        if (!process_sequence_transform(keycode, record, US_MAG1)) return false;
         if (!process_achordion(keycode, record)) return false;
         if (!process_my_bspc(keycode, record)) return false;
+    }
+    if (keycode == LT(7, KC_NO) && record->event.pressed && record->tap.count) {
+        process_sequence_transform(US_MAG1, record, US_MAG1);
+        return false;
     }
 
     // int rep_count = get_repeat_key_count();
@@ -547,7 +550,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(7, MY_MAGIC):
             if (record->tap.count && record->event.pressed) {
-                return process_magic_key(get_last_keycode(), get_last_mods());
+                tap_code16(US_MAG1);
+                return false;
+                // return process_magic_key(get_last_keycode(), get_last_mods());
             }
             return true;
         case MY_MAGIC:
