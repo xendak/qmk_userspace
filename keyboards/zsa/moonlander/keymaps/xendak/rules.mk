@@ -26,5 +26,5 @@ VPATH += keyboards/gboards
 
 # sequence_transform setup
 mkfile_dir := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
-include $(mkfile_dir)/sequence_transform/rules.mk
+include $(mkfile_dir)/tt/rules.mk
 # end sequence_transform setup
