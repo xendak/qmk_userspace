@@ -5,8 +5,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,       KC_SLASH,      KC_U,            KC_O,           KC_F,           KC_X,           ______,             ______,           KC_Z,       KC_W,           KC_D,           KC_L,           KC_Q,           KC_DEL,
         LT(6,KC_QUOTE),   HM_I,          HM_E,            KC_A,           HM_H,           KC_Y,           ______,             ______,           KC_G,       HM_S,           KC_T,           HM_R,           HM_N,           LT(6,KC_COMMA),
             KC_LSFT,      KC_K,          KC_MINUS,        KC_DOT,         KC_P,           MY_TILD,                                              KC_V,       KC_C,           KC_M,           KC_J,           KC_B,           KC_RSFT,
-            KC_LCTL,      KC_RIGHT,      KC_DOWN,         MY_LEFT,        MY_UP,          LT(6,KC_LCTL),                                  LT(6,KC_ESCAPE),  MY_DOWN,        MY_RIGHT,       KC_SCLN,        KC_SCLN,        KC_RCTL,
-                                                       LT(7, KC_NO),   KC_BSPC,        US_MAG1,                                             KC_DEL,     HM_SCLN,        LT(7, KC_SPACE)
+            KC_LCTL,      KC_RIGHT,      KC_DOWN,         MY_LEFT,        MY_UP,          LT(6,KC_ESC),                                  LT(6,KC_ESCAPE),   MY_DOWN,        MY_RIGHT,       KC_SCLN,        KC_SCLN,        KC_RCTL,
+                                                          LT(7, KC_NO),   KC_BSPC,        KC_ENTER,                                             KC_DEL,     HM_SCLN,        LT(7, KC_SPACE)
             ),
     [GAMES] = LAYOUT_moonlander(
             KC_ESCAPE,    ______,         ______,         ______,         ______,         ______,         ______,             ______,           ______,     ______, ______, ______, ______, ______,

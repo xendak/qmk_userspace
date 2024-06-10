@@ -1,10 +1,67 @@
 // 👆👍★✪
+// ⎵
+
+
+// normal rules for same finger movement
+a👆 ⇒ ao
+o👆 ⇒ oa
+
+u👆 ⇒ ue
+e👆 ⇒ eu
+
+// pt bs
+//~c👆 ⇒ ç
+
+
+// english bs
+dont👆 ⇒ don't
+wont👆 ⇒ won't
+cant👆 ⇒ can't
+∇dnt👆 ⇒ ∇dn't
+∇ldv👆 ⇒ ∇ld've
+
+
+‸i👆 ⇒ ‸I
+‸i👆l ⇒ ‸I'll
+‸i👆v ⇒ ‸I've
+‸i👆m ⇒ ‸I'm
+
+i👆 ⇒ ike
+i👆👆 ⇒ ik
+
+// stri👆 ⇒ striking
+‸k👆 ⇒ ‸ki
+∇k👆g ⇒ ∇king
+∇k👆d ⇒ ∇kind
+∇k👆 ⇒ ∇ki
+
+p👆 ⇒ py
+x👆 ⇒ xp
+h👆 ⇒ hy
+y👆 ⇒ yp
+
+w👆 ⇒ ws
+s👆 ⇒ sw
+z👆 ⇒ zs
+v👆 ⇒ vs
+
+r👆 ⇒ rl
+l👆 ⇒ lr
+ab👆 ⇒ able
+ab👆y ⇒ ably
+b👆 ⇒ bl
+
+n👆 ⇒ nb
+
+t👆 ⇒ tw
+g👆 ⇒ gs
 
 qe  ⇒ que
-q👆 ⇒ qu
-o👆 ⇒ oa
-a👆 ⇒ ao
-
-judge👆    ⇒ judgment
-i👆       ⇒ i'
-// I👆       ⇒ I'
+qa  ⇒ qua
+qi  ⇒ qui
+qo  ⇒ quo
+quu  ⇒ qu
+qaa  ⇒ qa
+qee  ⇒ qe
+qii  ⇒ qi
+qoo  ⇒ qo

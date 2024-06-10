@@ -194,7 +194,7 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
             return 0; // Bypass Achordion for these keys.
     }
 
-    return TAPPING_TERM * 2; // Otherwise use a timeout of 800 ms.
+    return TAPPING_TERM * 2 + 150; // Otherwise use a timeout of 800 ms.
 }
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -481,14 +481,14 @@ bool process_my_bspc(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (keycode == LT(7, KC_NO) && record->event.pressed && record->tap.count) {
+        keycode = US_MAG1;
+    }
+
     if (get_highest_layer(layer_state) == GRAPHITE) {
         if (!process_sequence_transform(keycode, record, US_MAG1)) return false;
         if (!process_achordion(keycode, record)) return false;
         if (!process_my_bspc(keycode, record)) return false;
-    }
-    if (keycode == LT(7, KC_NO) && record->event.pressed && record->tap.count) {
-        process_sequence_transform(US_MAG1, record, US_MAG1);
-        return false;
     }
 
     // int rep_count = get_repeat_key_count();
