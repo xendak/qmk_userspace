@@ -13,7 +13,7 @@
 
 #define ______ KC_TRANSPARENT
 
-// HOME ROW
+
 #define HM_S RSFT_T(KC_S)
 #define HM_H LSFT_T(KC_H)
 #define HM_E LCTL_T(KC_E)
@@ -22,12 +22,16 @@
 #define HM_A LALT_T(KC_A)
 #define HM_I LALT_T(KC_I)
 #define HM_N RALT_T(KC_N)
-#define HM_SCLN LCTL_T(KC_SCLN)
+//#define THUMBR2 LCTL_T(KC_SCLN)
+#define THUMBR2 US_MAG2
 
 #define MY_LEFT LWIN_T(KC_LEFT)
 #define MY_UP LALT_T(KC_UP)
 #define MY_DOWN RALT_T(KC_DOWN)
 #define MY_RIGHT RWIN_T(KC_RIGHT)
+
+#define MY_LEFTP LT(6, KC_K)
+#define MY_RIGHP LT(6, KC_COMMA)
 
 
 enum layers {
@@ -178,17 +182,16 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
         case MY_UP:
         case MY_DOWN:
         case MY_RIGHT:
-        case LT(6, KC_COMMA):
+        case MY_RIGHP:
         case LT(6, KC_SCLN):
         case LT(6, KC_DOT):
         case LT(6, KC_ENTER):
         case LT(6, KC_ESCAPE):
         case LT(6, KC_LCTL):
         case LT(6, KC_MINUS):
-        case LT(6, KC_QUOTE):
+        case MY_LEFTP:
         case LT(6, KC_Z):
         case LT(6, KC_Y):
-        case LT(6, KC_F):
             // case LT(7, KC_SPACE):
             // case LT(7, KC_BSPC):
             return 0; // Bypass Achordion for these keys.
@@ -199,7 +202,7 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(6, KC_COMMA):
+        case MY_RIGHP:
         case LT(6, KC_SCLN): // case LT(7, KC_SPACE): case LT(7, KC_BSPC):
             return TAPPING_TERM + 40;
         case MY_LEFT:
@@ -229,10 +232,11 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         case GRAL10: case GRAL11: case GRAL12: case GRAL13: case GRAL14: case GRAL15: case GRAL16: case GRAL17: case GRAL18:
         case GRAR01: case GRAR02: case GRAR03: case GRAR04: case GRAR05: case GRAR06: case GRAR07: case GRAR08: case GRAR09:
         case GRAR10: case GRAR11: case GRAR12: case GRAR13: case GRAR14: case GRAR15: case GRAR16: case GRAR17: case GRAR18:
-        case GRALR01: case GRALR02: case GRALR03: case GRALR04: case GRALR05: case GRALR06: case GRALR07: case GRALR08: case GRALR09:
-        case GRALR10: case GRALR11: case GRALR12: case GRALR13: case GRALR14: case GRALR15:
-        case GRARL01: case GRARL02: case GRARL03: case GRARL04: case GRARL05: case GRARL06: case GRARL07: case GRARL08: case GRARL09:
-        case GRARL10: case GRARL11: case GRARL12: case GRARL13: case GRARL14: case GRARL15:
+        // case GRALR01: case GRALR02: case GRALR03: case GRALR04: case GRALR05: case GRALR06: case GRALR07: case GRALR08: case GRALR09:
+        // case GRALR10: case GRALR11: case GRALR12: case GRALR13: case GRALR14: case GRALR15:
+        // case GRARL01: case GRARL02: case GRARL03: case GRARL04: case GRARL05: case GRARL06: case GRARL07: case GRARL08: case GRARL09:
+        // case GRARL10: case GRARL11: case GRARL12: case GRARL13: case GRARL14: case GRARL15:
+        case GRALR01: case GRALR06: case GRALR12: case GRARL11: case GRARL13: case GRARL16:
         case UTIL1: case UTIL2: case UTIL3: case UTIL4: case UTIL5:
             if (get_highest_layer(layer_state) == GRAPHITE) return true;
 

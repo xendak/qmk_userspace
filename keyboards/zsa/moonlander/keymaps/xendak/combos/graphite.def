@@ -2,10 +2,10 @@
 COMB(GRAL01,  S(KC_SLASH)   , KC_SLASH          , LT(7, KC_NO))
 COMB(GRAL02,  S(KC_U)       , KC_U              , LT(7, KC_NO))
 COMB(GRAL03,  S(KC_O)       , KC_O              , LT(7, KC_NO))
-COMB(GRAL04,  S(KC_F)       , KC_F              , LT(7, KC_NO))
+COMB(GRAL04,  S(KC_QUOT)    , KC_QUOT           , LT(7, KC_NO))
 COMB(GRAL05,  S(KC_MINUS)   , KC_MINUS          , LT(7, KC_NO))
 
-COMB(GRAL06,  S(KC_QUOTE)   , LT(6, KC_QUOTE)   , LT(7, KC_NO))
+COMB(GRAL06,  S(KC_K)       , MY_LEFTP          , LT(7, KC_NO)) // LEFT PINKY, CHANGE HERE IF WE EVER CHANGE.
 COMB(GRAL07,  S(KC_I)       , HM_I              , LT(7, KC_NO))
 COMB(GRAL08,  S(KC_E)       , HM_E              , LT(7, KC_NO))
 COMB(GRAL09,  S(KC_A)       , KC_A              , LT(7, KC_NO))
@@ -13,7 +13,7 @@ COMB(GRAL10,  S(KC_H)       , HM_H              , LT(7, KC_NO))
 COMB(GRAL11,  S(KC_Y)       , KC_Y              , LT(7, KC_NO))
 
 COMB(GRAL12,  S(KC_X)       , KC_X              , LT(7, KC_NO))
-COMB(GRAL13,  S(KC_K)       , KC_K              , LT(7, KC_NO))  // THIS KEY IS BEING TESTED
+COMB(GRAL13,  S(KC_F)       , KC_F              , LT(7, KC_NO))
 COMB(GRAL14,  S(KC_DOT)     , KC_DOT            , LT(7, KC_NO))
 COMB(GRAL15,  S(KC_P)       , KC_P              , LT(7, KC_NO))
 COMB(GRAL16,  S(KC_K)       , KC_K              , LT(7, KC_NO))
@@ -25,7 +25,7 @@ COMB(GRALR03, S(KC_O)       , LT(7, KC_SPACE)   , KC_O              )
 COMB(GRALR04, S(KC_F)       , LT(7, KC_SPACE)   , KC_F              )
 COMB(GRALR05, S(KC_MINUS)   , LT(7, KC_SPACE)   , KC_MINUS          )
 
-COMB(GRALR06, S(KC_QUOTE)   , LT(7, KC_SPACE)   , LT(6, KC_QUOTE)   )
+COMB(GRALR06, S(KC_F)       , LT(7, KC_SPACE)   , MY_LEFTP          )
 COMB(GRALR07, S(KC_I)       , LT(7, KC_SPACE)   , HM_I              )
 COMB(GRALR08, KC_LPRN       , LT(7, KC_SPACE)   , HM_E              )
 COMB(GRALR09, KC_RPRN       , LT(7, KC_SPACE)   , KC_A              )
@@ -36,7 +36,7 @@ COMB(GRALR12, S(KC_J)       , LT(7, KC_SPACE)   , KC_J              )
 COMB(GRALR13, S(KC_K)       , LT(7, KC_SPACE)   , KC_K              ) // THIS KEY IS BEING TESTED
 COMB(GRALR14, S(KC_DOT)     , LT(7, KC_SPACE)   , KC_DOT            )
 COMB(GRALR15, S(KC_P)       , LT(7, KC_SPACE)   , KC_P              )
-COMB(GRALR16, S(KC_K)       , LT(7, KC_SPACE)   , KC_K              )
+COMB(GRALR16, S(KC_X)       , LT(7, KC_SPACE)   , KC_X              )
 
 COMB(GRAL17,  S(KC_COMMA)   , LT(7, KC_SPACE)   , KC_COMMA          )
 COMB(GRAL18,  S(KC_COMMA)   , LT(7, KC_SPACE)   , KC_COMMA          )
@@ -54,7 +54,7 @@ COMB(GRAR07,  S(KC_S)       , HM_S              , LT(7, KC_SPACE))
 COMB(GRAR08,  S(KC_T)       , KC_T              , LT(7, KC_SPACE))
 COMB(GRAR09,  S(KC_R)       , HM_R              , LT(7, KC_SPACE))
 COMB(GRAR10,  S(KC_N)       , HM_N              , LT(7, KC_SPACE))
-COMB(GRAR11,  S(KC_DOT)     , LT(6, KC_DOT)     , LT(7, KC_SPACE))
+COMB(GRAR11,  S(KC_COMMA)   , MY_RIGHP          , LT(7, KC_SPACE)) // RIGHT PINKY
 
 
 COMB(GRAR12,  S(KC_V)       , KC_V              , LT(7, KC_SPACE))
@@ -63,8 +63,8 @@ COMB(GRAR14,  S(KC_M)       , KC_M              , LT(7, KC_SPACE))
 COMB(GRAR15,  S(KC_X)       , KC_X              , LT(7, KC_SPACE))
 COMB(GRAR16,  S(KC_B)       , KC_B              , LT(7, KC_SPACE))
 
-COMB(GRAR17,  S(KC_SCLN)    , HM_SCLN           , LT(7, KC_SPACE))
-COMB(GRAR18,  S(KC_SCLN)    , HM_SCLN           , LT(7, KC_NO))
+COMB(GRAR17,  S(KC_SCLN)    , THUMBR2           , LT(7, KC_SPACE))
+COMB(GRAR18,  S(KC_SCLN)    , THUMBR2           , LT(7, KC_NO))
 
 // RIGHT with LEFT hand trigger
 COMB(GRARL01, S(KC_Z)       , LT(7, KC_NO)   , KC_Z              )
