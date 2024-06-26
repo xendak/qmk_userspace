@@ -5,7 +5,7 @@ COMB(GRAL03,  S(KC_O)       , KC_O              , LT(7, KC_NO))
 COMB(GRAL04,  S(KC_QUOT)    , KC_QUOT           , LT(7, KC_NO))
 COMB(GRAL05,  S(KC_MINUS)   , KC_MINUS          , LT(7, KC_NO))
 
-COMB(GRAL06,  S(KC_K)       , MY_LEFTP          , LT(7, KC_NO)) // LEFT PINKY, CHANGE HERE IF WE EVER CHANGE.
+COMB(GRAL06,  S(KC_QUOTE)   , MY_LEFTP          , LT(7, KC_NO)) // LEFT PINKY, CHANGE HERE IF WE EVER CHANGE.
 COMB(GRAL07,  S(KC_I)       , HM_I              , LT(7, KC_NO))
 COMB(GRAL08,  S(KC_E)       , HM_E              , LT(7, KC_NO))
 COMB(GRAL09,  S(KC_A)       , KC_A              , LT(7, KC_NO))

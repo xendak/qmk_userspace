@@ -2,7 +2,7 @@
     "rules_file_name": "sequence_transform_dict.txt",
     "sequence_token_symbols": {
         "👆": "*",
-        "✪":  "@",
+        "👈": "@",
         "★":  "#",
         "👍": "&"
     },

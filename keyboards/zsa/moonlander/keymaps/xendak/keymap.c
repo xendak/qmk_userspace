@@ -30,7 +30,7 @@
 #define MY_DOWN RALT_T(KC_DOWN)
 #define MY_RIGHT RWIN_T(KC_RIGHT)
 
-#define MY_LEFTP LT(6, KC_K)
+#define MY_LEFTP LT(6, KC_QUOTE)
 #define MY_RIGHP LT(6, KC_COMMA)
 
 
@@ -169,7 +169,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case ALL_MAPLE1:
             return 80;
     }
-    if (combo->keys[0] == LT(7, KC_SPACE) || combo->keys[0] == LT(7, MY_MAGIC)) { // if first key in the array is Enter
+    if (combo->keys[0] == LT(7, KC_SPACE) || combo->keys[0] == LT(7, KC_NO)) { // if first key in the array is Enter
         return 30;
     }
 
@@ -192,6 +192,7 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
         case MY_LEFTP:
         case LT(6, KC_Z):
         case LT(6, KC_Y):
+        case LT(6, KC_F):
             // case LT(7, KC_SPACE):
             // case LT(7, KC_BSPC):
             return 0; // Bypass Achordion for these keys.
@@ -200,9 +201,22 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
     return TAPPING_TERM * 2 + 150; // Otherwise use a timeout of 800 ms.
 }
 
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case HM_E:
+        case HM_A:
+            return QUICK_TAP_TERM;
+        default:
+            return 0;
+    }
+}
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MY_RIGHP:
+        case MY_LEFTP:
+        case LT(6, KC_F):
+        case LT(6, KC_Y):
         case LT(6, KC_SCLN): // case LT(7, KC_SPACE): case LT(7, KC_BSPC):
             return TAPPING_TERM + 40;
         case MY_LEFT:

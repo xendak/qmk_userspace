@@ -4,7 +4,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             QK_GESC,      KC_1,          KC_2,            KC_3,           KC_4,           KC_5,           KC_EQUAL,           KC_MINUS,         KC_6,       KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
             KC_TAB,       KC_SLASH,      KC_U,            KC_O,           KC_F,           KC_X,           ______,             ______,           KC_Z,       KC_W,           KC_D,           KC_L,           KC_Q,           KC_DEL,
             MY_LEFTP,     HM_I,          HM_E,            KC_A,           HM_H,           KC_Y,           ______,             ______,           KC_G,       HM_S,           KC_T,           HM_R,           HM_N,           MY_RIGHP,
-            KC_LSFT,      MY_TILD,       KC_MINUS,        KC_DOT,         KC_P,           KC_QUOT,                                              KC_V,       KC_C,           KC_M,           KC_J,           KC_B,           KC_RSFT,
+            KC_LSFT,      MY_TILD,       KC_MINUS,        KC_DOT,         KC_P,           KC_K,                                                 KC_V,       KC_C,           KC_M,           KC_J,           KC_B,           KC_RSFT,
             KC_LCTL,      KC_RIGHT,      KC_DOWN,         MY_LEFT,        MY_UP,          LT(6,KC_ESC),                                  LT(6,KC_ESCAPE),   MY_DOWN,        MY_RIGHT,       KC_SCLN,        KC_SCLN,        KC_RCTL,
                                                           LT(7, KC_NO),   KC_BSPC,        KC_ENTER,                                             KC_DEL,     THUMBR2,        LT(7, KC_SPACE)
             ), // MY_TILD
@@ -54,12 +54,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LT(6, KC_F),      KC_S,          KC_R,            KC_N,           KC_T,           KC_K,           ______,             ______,           KC_C,       KC_D,           KC_E,           KC_A,           KC_I,           LT(6, KC_Y),
             KC_LSFT,      KC_MINUS,      KC_J,            KC_B,           KC_M,           KC_Q,                                                 KC_P,       KC_G,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
             KC_LCTL,      ______,        ______,          ______,         ______,         LT(6,KC_ESCAPE),                                LT(6,KC_ESCAPE),  ______,         ______,         ______,         ______,         KC_RCTL,
-                                                          MY_MAGIC,  LT(7, KC_BSPC),       KC_ENTER,                                             KC_DEL,     KC_SCLN,        LT(7, KC_SPACE)
+                                                          LT(7, KC_NO),   KC_LSFT,        KC_ENTER,                                             KC_DEL,     THUMBR2,        LT(7, KC_SPACE)
             ),
     [SYMBOLS] = LAYOUT_moonlander(
             KC_GRAVE,     KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        KC_EQUAL,            KC_MINUS,          KC_KP_6,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_ESCAPE,
             ______,       KC_BSLS,        KC_LBRC,        KC_RBRC,        KC_AT,          KC_PIPE,        ______,              ______,            KC_UNDS,    KC_PIPE,        KC_MINUS,       KC_AMPR,        KC_ASTR,        KC_F12,
-            KC_SCLN,      KC_MINUS,       KC_LPRN,        KC_RPRN,        KC_HASH,        KC_ASTR,        ______,              ______,            KC_ASTR,    KC_UNDS,        KC_COMMA,       KC_DOT,         KC_KP_PLUS,     ______,
+            KC_SCLN,      KC_MINUS,       KC_LPRN,        KC_RPRN,        KC_HASH,        KC_ASTR,        ______,              ______,            KC_ASTR,    KC_UNDS,        KC_SCLN,        KC_DOT,         KC_KP_PLUS,     ______,
             ______,       KC_PERC,        KC_LCBR,        KC_RCBR,        KC_DQUO,        KC_GRAVE,                                               KC_AMPR,    KC_EQUAL,       KC_LT,          KC_GT,          KC_EXLM,        ______,
             ______,       ______,         ______,         ______,         ______,         ______,                                                 ______,     ______,         KC_DOT,         KC_0,           ______,         ______,
                                                           KC_LSFT,        ______,         ______,                                                 ______,     ______,         KC_RSFT
