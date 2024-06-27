@@ -50,11 +50,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             ),
     [SEMIMAK] = LAYOUT_moonlander(
             KC_ESCAPE,    KC_1,          KC_2,            KC_3,           KC_4,           KC_5,           RGB_SAI,            RGB_VAI,          KC_6,       KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
-            KC_TAB,       KC_X,          KC_L,            KC_H,           KC_V,           KC_Z,           RGB_HUI,            RGB_HUI,          KC_GRAVE,   KC_W,           KC_U,           KC_O,           KC_QUOTE,       KC_TAB,
+            KC_TAB,       KC_MINUS,      KC_L,            KC_H,           KC_V,           KC_Z,           RGB_HUI,            RGB_HUI,          KC_GRAVE,   KC_W,           KC_U,           KC_O,           KC_QUOTE,       KC_TAB,
         LT(6, KC_F),      KC_S,          KC_R,            KC_N,           KC_T,           KC_K,           ______,             ______,           KC_C,       KC_D,           KC_E,           KC_A,           KC_I,           LT(6, KC_Y),
-            KC_LSFT,      KC_MINUS,      KC_J,            KC_B,           KC_M,           KC_Q,                                                 KC_P,       KC_G,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
+            KC_LSFT,      KC_P,          KC_J,            KC_B,           KC_M,           KC_Q,                                                 KC_X,       KC_G,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RSFT,
             KC_LCTL,      ______,        ______,          ______,         ______,         LT(6,KC_ESCAPE),                                LT(6,KC_ESCAPE),  ______,         ______,         ______,         ______,         KC_RCTL,
-                                                          LT(7, KC_NO),   KC_LSFT,        KC_ENTER,                                             KC_DEL,     THUMBR2,        LT(7, KC_SPACE)
+                                                          US_MAG3,   KC_LSFT,        KC_ENTER,                                             KC_DEL,     THUMBR2,        LT(7, KC_SPACE)
             ),
     [SYMBOLS] = LAYOUT_moonlander(
             KC_GRAVE,     KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        KC_EQUAL,            KC_MINUS,          KC_KP_6,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_ESCAPE,

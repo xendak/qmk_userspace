@@ -1,5 +1,6 @@
 // symbol references
-// 👆 👍 ★ ✪ 👈
+// 👆 👍
+
 // ⎵ ‸ ∂ ∆ ∇ ‼ ‥ • ∀
 // ⇒
 // ⇑ one_shot_shift_symbol
@@ -20,15 +21,6 @@ e👆 ⇒ eu
 c👈 ⇒ `a
 ‸ee👆 ⇒ ‸eu
 // Europe
-
-
-// english bs
-‸dont⎵      ⇒ ‸don't⎵
-‸didnt⎵     ⇒ ‸didn't⎵
-‸youre⎵     ⇒ ‸you're⎵
-‸theyre⎵    ⇒ ‸they're⎵
-‸wont⎵      ⇒ ‸won't⎵
-‸cant⎵      ⇒ ‸can't⎵
 
 
 ‸we👆  ⇒ ‸we're⎵
@@ -110,12 +102,50 @@ n👆 ⇒ nb
 t👆 ⇒ tw
 g👆 ⇒ gs
 
-qe  ⇒ que
-qa  ⇒ qua
-qi  ⇒ qui
-qo  ⇒ quo
 quu👆  ⇒ qu
 qaa👆  ⇒ qa
 qee👆  ⇒ qe
 qii👆  ⇒ qi
 qoo👆  ⇒ qo
+
+
+// semimak-jq
+// ★ 👍
+
+quu★  ⇒ qu
+qaa★  ⇒ qa
+qee★  ⇒ qe
+qii★  ⇒ qi
+qoo★  ⇒ qo
+
+
+s★  ⇒ sf
+r★  ⇒ rl
+l★  ⇒ lr
+b★  ⇒ bh
+h★  ⇒ hb
+x★  ⇒ xd
+f★  ⇒ fl
+u★  ⇒ ue
+e★  ⇒ eu
+o★  ⇒ oa
+a★  ⇒ ao
+y★  ⇒ yi
+i★  ⇒ iy
+p★  ⇒ pl
+g★  ⇒ gd
+c★  ⇒ cd
+
+// global rules
+
+qe  ⇒ que
+qa  ⇒ qua
+qi  ⇒ qui
+qo  ⇒ quo
+
+‸dont⎵      ⇒ ‸don't⎵
+‸didnt⎵     ⇒ ‸didn't⎵
+‸youre⎵     ⇒ ‸you're⎵
+‸theyre⎵    ⇒ ‸they're⎵
+‸wont⎵      ⇒ ‸won't⎵
+‸cant⎵      ⇒ ‸can't⎵

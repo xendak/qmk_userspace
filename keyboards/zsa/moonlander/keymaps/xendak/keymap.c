@@ -127,7 +127,7 @@ uint32_t prng(uint32_t min, uint32_t max) {
 }
 
 #include "g/keymap_combo.h"
-#include "sequence_transform/sequence_transform.h"
+#include "tt/sequence_transform.h"
 #include "mlayout.h"
 
 bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) {
@@ -499,14 +499,17 @@ bool process_my_bspc(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (keycode == LT(7, KC_NO) && record->event.pressed && record->tap.count) {
+    if (keycode == LT(7, KC_NO) && record->event.pressed && record->tap.count)
         keycode = US_MAG1;
-    }
+    if (keycode == LT(7, KC_OUT) && record->event.pressed && record->tap.count)
+        keycode = US_MAG3;
 
     if (get_highest_layer(layer_state) == GRAPHITE) {
         if (!process_sequence_transform(keycode, record, US_MAG1)) return false;
         if (!process_achordion(keycode, record)) return false;
         if (!process_my_bspc(keycode, record)) return false;
+    } else if (get_highest_layer(layer_state) == SEMIMAK) {
+        if (!process_sequence_transform(keycode, record, US_MAG1)) return false;
     }
 
     // int rep_count = get_repeat_key_count();
