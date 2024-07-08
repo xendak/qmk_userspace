@@ -124,7 +124,7 @@ r★  ⇒ rl
 l★  ⇒ lr
 b★  ⇒ bh
 h★  ⇒ hb
-x★  ⇒ xd
+x★  ⇒ xc
 f★  ⇒ fl
 u★  ⇒ ue
 e★  ⇒ eu
@@ -133,8 +133,8 @@ a★  ⇒ ao
 y★  ⇒ yi
 i★  ⇒ iy
 p★  ⇒ pl
-g★  ⇒ gd
-c★  ⇒ cd
+g★  ⇒ gc
+c★  ⇒ cg
 
 // global rules
 

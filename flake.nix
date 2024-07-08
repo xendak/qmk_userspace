@@ -15,9 +15,8 @@
           name = "keymap";
           src = ./.;
           phases = [ "buildPhase" ];
-          buildInputs = [ pkgs.qmk ];
+          buildInputs = [ pkgs.qmk pkgs.git ];
           buildPhase = ''
-            qmk setup -H ./qmk_firmware
             make -C $src BUILD_DIR=`pwd`/.build COPY=echo -j8 ${keyboard}:${keymap}
             mkdir $out
             cp -r .build/* $out/
@@ -30,7 +29,7 @@
         devShell = pkgs.mkShell {
           KEYBOARD = keyboard;
           KEYMAP = keymap;
-          buildInputs = [ pkgs.qmk ];
+          buildInputs = [ pkgs.qmk pkgs.git ];
           shellHook = ''
             build() {
               BUILD_DIR=''${1:-.build}
