@@ -35,12 +35,12 @@
 
 
 enum layers {
-    GRAPHITE,
+    SEMIMAK,
     GAMES,
     MAPLE,
     BLASTER,
     BMAGE,
-    SEMIMAK,
+    GRAPHITE,
     FUNCTION,
     SYMBOLS,
 };
@@ -231,12 +231,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     switch (combo_index) {
-        // case TAI1:  case TAI2:  case TAI3:  case TAI4:  case TAI5:  case TAI6:  case TAI7:  case TAI8:  case TAI9:  case TAI10:
-        // case TAI11: case TAI12: case TAI13: case TAI14: case TAI15: case TAI16: case TAI17: case TAI18: case TAI19: case TAI20:
-        // case TAI21: case TAI22: case TAI23: case TAI24: case TAI25: case TAI26: case TAI27: case TAI28: case TAI29: case TAI30:
-        // case TAI31: case TAI32: case TAI33: case TAI34: case TAI35: case TAI36: case TAI37: case TAI38: case TAI39: case TAI40:
-        // case TAI41: case TAI42: case TAI43: case TAI44: case TAI45: case TAI46: case TAI47: case TAI48: case TAI49: case TAI50:
-        // case TAI51: case TAI52: case TAI53: case TAI54: case TAI55: case TAI56: case TAI57: case TAI58: case TAI59: case TAI60:
+        case SEMI01: case SEMI02: case SEMI03: case SEMI04: case SEMI05: case SEMI06: case SEMI07: case SEMI08: case SEMI09: case SEMI10:
+        case SEMI11: case SEMI12: case SEMI13: case SEMI14: case SEMI15: case SEMI16: case SEMI17: case SEMI18: case SEMI19: case SEMI20:
+        case SEMI21: case SEMI22: case SEMI23: case SEMI24: case SEMI25: case SEMI26: case SEMI27: case SEMI28: case SEMI29: case SEMI30:
+        case SEMI31: case SEMI32: case SEMI33: case SEMI34: case SEMI35: case SEMI36: case SEMI37: case SEMI38: case SEMI39: case SEMI40:
+        case SEMI41: case SEMI42: case SEMI43: case SEMI44: case SEMI45: case SEMI46: case SEMI47: case SEMI48: case SEMI49: case SEMI50:
+        case SEMI51: case SEMI52: case SEMI53: // case SEMI54:// case SEMI55: case SEMI56: case SEMI57: case SEMI58: case SEMI59: case SEMI60:
+            if (get_highest_layer(layer_state) == SEMIMAK) return true;
+            else { break; }
         // case TAI61: case TAI62: case TAI63: case TAI64: case TAI65: case TAI66: case TAI67: case TAI68: case TAI69: case TAI70:
         // case TAI71: case TAI72: case TAI73: case TAI74: case TAI75: case TAI76: case TAI77: case TAI78: case TAI79: case TAI80:
         // case TAI81: case TAI82: case TAI83: case TAI84: case TAI85: case TAI86: case TAI87: case TAI88: case TAI89: case TAI90:
@@ -253,6 +255,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         case GRALR01: case GRALR06: case GRALR12: case GRARL11: case GRARL13: case GRARL16:
         case UTIL1: case UTIL2: case UTIL3: case UTIL4: case UTIL5:
             if (get_highest_layer(layer_state) == GRAPHITE) return true;
+            else { break; }
 
         // MAPLE_COMBOS
         case ALL_MAPLE1:
@@ -260,15 +263,16 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
                 get_highest_layer(layer_state) == MAPLE   ||
                 get_highest_layer(layer_state) == BMAGE )
                 return true;
+            else { break; }
         case MAPLE1: case MAPLE2:
             if (get_highest_layer(layer_state) == MAPLE) return true;
+            else { break; }
         case BLASTER1: case BLASTER2:
             if (get_highest_layer(layer_state) == BLASTER) return true;
+            else { break; }
         case BMAGE1: case BMAGE2:
             if (get_highest_layer(layer_state) == BMAGE) return true;
-
-        case SEMIL1: case SEMIL2: case SEMIR1: case SEMIB1:
-            if (get_highest_layer(layer_state) == SEMIMAK) return true;
+            else { break; }
     }
     return false;
 }
@@ -934,8 +938,8 @@ void suspend_wakeup_init_kb(void) {
 void keyboard_post_init_user(void) {
     rgb_matrix_enable();
     rgb_matrix_sethsv_noeeprom(HSV_CYAN);
-    HSV final = rgblight_get_hsv();
-    rgb_matrix_sethsv_noeeprom(final.h, 0, 255); // turn off color by setting saturation to 0
+    //HSV final = rgblight_get_hsv();
+    //rgb_matrix_sethsv_noeeprom(final.h, 0, 255); // turn off color by setting saturation to 0
     rgb_matrix_mode(RGB_MATRIX_CUSTOM_CHATGPT);
     kk.key_count      = 0;
     kk.last_key_count = 0;

@@ -112,12 +112,10 @@ qoo👆  ⇒ qo
 // semimak-jq
 // ★ 👍
 
-quu★  ⇒ qu
-qaa★  ⇒ qa
-qee★  ⇒ qe
-qii★  ⇒ qi
-qoo★  ⇒ qo
-
+qa★  ⇒ qa
+qe★  ⇒ qe
+qi★  ⇒ qi
+qo★  ⇒ qo
 
 s★  ⇒ sf
 r★  ⇒ rl
