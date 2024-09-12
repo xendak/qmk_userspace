@@ -72,6 +72,10 @@ enum custom_keycodes {
     BLASTER_DS,
     BMACRO_DS,
     BMACRO_AS,
+    B_JUMP_FARM,
+    B_NRL_FARM,
+    B_A,
+    B_D,
     BLASTER_DOUBLE_JUMP,
     BLASTER_SGP,
     B_HAMMER,
@@ -126,6 +130,32 @@ uint32_t prng(uint32_t min, uint32_t max) {
     return min + (prng32() % range);
 }
 
+
+// BLASTER MOBBING? ATTEMPT 1
+//
+void random_time(float delay) {
+    if (key_trigger < 5) return;
+    uint8_t variation = 0;
+    uint8_t d = 0;
+    if (delay < 0.001) { variation = 1; d = 0; }
+    else { d = (uint8_t)(delay * 1000); }
+
+    if (1 < d && d <= 30) { variation = prng(10, 20); }
+    else if (30 < d && d <= 90) { variation = prng(10, (uint8_t)(d/2)); }
+    else if (90 < d && d <= 300) { variation = prng(10, (uint8_t)(d/4)); }
+    else { variation = prng(10, (uint8_t)(d/8)); }
+    d += variation;
+    /*printf("original = %f\t", delay);*/
+    /*printf("delay = %d\n", d);*/
+    wait_ms(d);
+}
+
+
+/*#include "blaster.c"*/
+#include "winter.c"
+//
+// END BLASTER
+
 #include "g/keymap_combo.h"
 #include "tt/sequence_transform.h"
 #include "mlayout.h"
@@ -151,12 +181,14 @@ bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) 
             return false;
     }
 }
+
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
         case UTIL1:
         case UTIL2:
         case UTIL4:
         case UTIL5:
+        case SEMI50: case SEMI51: case SEMI52: case SEMI53: case SEMI54:// case SEMI55: case SEMI56: case SEMI57: case SEMI58: case SEMI59: case SEMI60:
             return 30;
         case UTIL3:
             return 50;
@@ -169,7 +201,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case ALL_MAPLE1:
             return 80;
     }
-    if (combo->keys[0] == LT(7, KC_SPACE) || combo->keys[0] == LT(7, KC_NO)) { // if first key in the array is Enter
+    if (combo->keys[0] == LT(7, KC_SPACE) || combo->keys[0] == US_MAG3 || combo->keys[0] == LT(7, KC_NO)) { // if first key in the array is Enter
         return 30;
     }
 
@@ -236,7 +268,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         case SEMI21: case SEMI22: case SEMI23: case SEMI24: case SEMI25: case SEMI26: case SEMI27: case SEMI28: case SEMI29: case SEMI30:
         case SEMI31: case SEMI32: case SEMI33: case SEMI34: case SEMI35: case SEMI36: case SEMI37: case SEMI38: case SEMI39: case SEMI40:
         case SEMI41: case SEMI42: case SEMI43: case SEMI44: case SEMI45: case SEMI46: case SEMI47: case SEMI48: case SEMI49: case SEMI50:
-        case SEMI51: case SEMI52: case SEMI53: // case SEMI54:// case SEMI55: case SEMI56: case SEMI57: case SEMI58: case SEMI59: case SEMI60:
+        case SEMI51: case SEMI52: case SEMI53: case SEMI54:// case SEMI55: case SEMI56: case SEMI57: case SEMI58: case SEMI59: case SEMI60:
             if (get_highest_layer(layer_state) == SEMIMAK) return true;
             else { break; }
         // case TAI61: case TAI62: case TAI63: case TAI64: case TAI65: case TAI66: case TAI67: case TAI68: case TAI69: case TAI70:
@@ -667,6 +699,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_COMMA);
             }
             return false;
+
+        case B_JUMP_FARM:
+            if (record->event.pressed)
+                key_trigger = 6;
+            else
+                key_trigger = 0;
+            return false;
+        case B_NRL_FARM:
+            if (record->event.pressed)
+                key_trigger = 7;
+            else
+                key_trigger = 0;
+            return false;
+        case B_A:
+            if (record->event.pressed)
+                SEND_STRING(SS_DOWN(X_A) SS_DOWN(X_S) SS_DELAY(30) SS_DELAY(333) SS_UP(X_S) SS_UP(X_A) SS_DELAY(150) SS_DOWN(X_LALT) SS_DELAY(20) SS_UP(X_LALT) SS_DELAY(40));
+            return false;
+        case B_D:
+            if (record->event.pressed)
+                SEND_STRING(SS_DOWN(X_D) SS_DOWN(X_S) SS_DELAY(30) SS_DELAY(333) SS_UP(X_S) SS_UP(X_D) SS_DELAY(150) SS_DOWN(X_LALT) SS_DELAY(20) SS_UP(X_LALT) SS_DELAY(40));
+            return false;
+
         case BMACRO_DS:
             if (record->event.pressed) {
                 register_code(KC_D);
@@ -768,7 +822,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 wait_ms(83.34);
                 register_code(KC_N);
                 // wait_ms(250);
-                wait_ms(213.34);
+                wait_ms(223.34);
                 unregister_code(KC_X);
                 wait_ms(20.33);
                 unregister_code(KC_N);
@@ -915,6 +969,30 @@ void matrix_scan_user(void) {
                     SEND_STRING(SS_DOWN(X_A) SS_DOWN(X_S) SS_DELAY(30) SS_DELAY(333) SS_UP(X_S) SS_UP(X_A) SS_DELAY(7) SS_DOWN(X_LALT) SS_DELAY(20) SS_UP(X_LALT) SS_DELAY(40));
                 }
                 weave     = !weave;
+                key_timer = timer_read32();
+            }
+        } break;
+        case 6: {
+        // jump farm
+            if (timer_elapsed(key_timer) > 60) {
+                blaster();
+                key_timer = timer_read32();
+            }
+        } break;
+        case 7: {
+            if (timer_elapsed(key_timer) > 60) {
+                if (weave) {
+                    for (int i = 0; i < 3; i++) {
+                        SEND_STRING(SS_DOWN(X_D) SS_DOWN(X_S) SS_DELAY(30) SS_DELAY(333) SS_UP(X_S) SS_UP(X_D) SS_DELAY(220) SS_DOWN(X_LALT) SS_DELAY(30) SS_UP(X_LALT) SS_DELAY(40));
+                    }
+                }
+                else {
+                    for (int i = 0; i < 3; i++) {
+                        SEND_STRING(SS_DOWN(X_A) SS_DOWN(X_S) SS_DELAY(30) SS_DELAY(333) SS_UP(X_S) SS_UP(X_A) SS_DELAY(220) SS_DOWN(X_LALT) SS_DELAY(30) SS_UP(X_LALT) SS_DELAY(40));
+                    }
+                }
+
+                weave = !weave;
                 key_timer = timer_read32();
             }
         } break;

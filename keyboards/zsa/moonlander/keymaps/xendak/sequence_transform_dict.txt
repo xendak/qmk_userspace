@@ -117,15 +117,21 @@ qe★  ⇒ qe
 qi★  ⇒ qi
 qo★  ⇒ qo
 
-s★  ⇒ sf
+s★  ⇒ sp
+ss★  ⇒ ps
+pj★  ⇒ ps
 r★  ⇒ rl
 l★  ⇒ lr
 b★  ⇒ bh
+n★  ⇒ nh
 h★  ⇒ hb
 x★  ⇒ xc
 f★  ⇒ fl
 u★  ⇒ ue
 e★  ⇒ eu
+w★  ⇒ we
+t★  ⇒ tm
+m★  ⇒ mt
 o★  ⇒ oa
 a★  ⇒ ao
 y★  ⇒ yi
