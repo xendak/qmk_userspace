@@ -1,12 +1,14 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include "quantum.h"
-
 #include "achordion/achordion.h"
+
+
 #include "../../../../shared/blaster.h"
 #include "../../../../shared/pwm.h"
 
 #define ______ KC_TRANSPARENT
+
 
 #define HM_S RSFT_T(KC_S)
 #define HM_H LSFT_T(KC_H)
@@ -16,21 +18,14 @@
 #define HM_A LALT_T(KC_A)
 #define HM_I LALT_T(KC_I)
 #define HM_N RALT_T(KC_N)
-//#define THUMBR2 LCTL_T(KC_SCLN)
-#define THUMBR2 US_MAG2
 
 #define MY_LEFT LWIN_T(KC_LEFT)
 #define MY_UP LALT_T(KC_UP)
 #define MY_DOWN RALT_T(KC_DOWN)
 #define MY_RIGHT RWIN_T(KC_RIGHT)
 
-#define MY_LEFTP LT(F_, KC_QUOTE)
-#define MY_RIGHP LT(F_, KC_COMMA)
-
-#define F_ FUNCTION
-#define S_ SYMBOLS
-#define GAME_1 MT(MOD_LCTL, KC_ENTER)
-#define GAME_2 MT(MOD_RSFT, KC_ENTER)
+#define MY_LEFTP LT(FUNCTION, KC_QUOTE)
+#define MY_RIGHP LT(FUNCTION, KC_COMMA)
 
 
 enum layers {
@@ -45,10 +40,6 @@ enum layers {
 
 enum custom_keycodes {
     RGB_SLD = SAFE_RANGE,
-    US_MAG1,
-    US_MAG2,
-    US_MAG3,
-    US_MAG4,
     PWM,
     PWM2,
     KEYUP,
@@ -95,16 +86,11 @@ static bool     weave       = false;
 #define BSPC_MAX_LENGTH 30
 
 static bool key_pressed = false;
-struct key_list {
-    uint8_t key_count;
-    uint8_t last_key_count;
-    uint8_t key_list[BSPC_MAX_LENGTH];
-};
-struct key_list kk;
 
-#include "g/keymap_combo.h"
-#include "tt/sequence_transform.h"
+
+
 #include "mlayout.h"
+#include "g/keymap_combo.h"
 
 bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -116,8 +102,8 @@ bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) 
         case HM_E:
         case HM_A:
         case HM_T:
-        case LT(S_, KC_SPACE):
-        case LT(S_, MY_MAGIC):
+        case LT(SYMBOLS, KC_SPACE):
+        case LT(SYMBOLS, MY_MAGIC):
         case MY_LEFT:
         case MY_UP:
         case MY_DOWN:
@@ -141,7 +127,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case ALL_MAPLE1:
             return 110;
     }
-    if (combo->keys[0] == LT(S_, KC_SPACE) || combo->keys[0] == US_MAG3 || combo->keys[0] == LT(S_, KC_NO)) { // if first key in the array is Enter
+    if (combo->keys[0] == LT(SYMBOLS, KC_SPACE) || combo->keys[0] == LT(SYMBOLS, KC_NO)) { // if first key in the array is Enter
         return 30;
     }
 
@@ -155,18 +141,18 @@ uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
         case MY_DOWN:
         case MY_RIGHT:
         case MY_RIGHP:
-        case LT(F_, KC_SCLN):
-        case LT(F_, KC_DOT):
-        case LT(F_, KC_ENTER):
-        case LT(F_, KC_ESCAPE):
-        case LT(F_, KC_LCTL):
-        case LT(F_, KC_MINUS):
+        case LT(FUNCTION, KC_SCLN):
+        case LT(FUNCTION, KC_DOT):
+        case LT(FUNCTION, KC_ENTER):
+        case LT(FUNCTION, KC_ESCAPE):
+        case LT(FUNCTION, KC_LCTL):
+        case LT(FUNCTION, KC_MINUS):
         case MY_LEFTP:
-        case LT(F_, KC_Z):
-        case LT(F_, KC_Y):
-        case LT(F_, KC_F):
-            // case LT(S_, KC_SPACE):
-            // case LT(S_, KC_BSPC):
+        case LT(FUNCTION, KC_Z):
+        case LT(FUNCTION, KC_Y):
+        case LT(FUNCTION, KC_F):
+            // case LT(SYMBOLS, KC_SPACE):
+            // case LT(SYMBOLS, KC_BSPC):
             return 0; // Bypass Achordion for these keys.
     }
 
@@ -187,9 +173,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MY_RIGHP:
         case MY_LEFTP:
-        case LT(F_, KC_F):
-        case LT(F_, KC_Y):
-        case LT(F_, KC_SCLN): // case LT(S_, KC_SPACE): case LT(S_, KC_BSPC):
+        case LT(FUNCTION, KC_F):
+        case LT(FUNCTION, KC_Y):
+        case LT(FUNCTION, KC_SCLN): // case LT(SYMBOLS, KC_SPACE): case LT(SYMBOLS, KC_BSPC):
             return TAPPING_TERM + 40;
         case MY_LEFT:
         case MY_UP:
@@ -252,145 +238,10 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, ui
     return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
-bool process_magic_key(uint16_t prev_keycode, uint8_t prev_mods) {
-    uint16_t kc = prev_keycode = QK_MODS_GET_BASIC_KEYCODE(prev_keycode);
-    switch (kc) {
-        case KC_E:
-        case HM_E:
-            SEND_STRING("u");
-            return false;
-        case KC_K:
-            SEND_STRING("i");
-            return false;
-        case KC_U:
-            SEND_STRING("e");
-            return false;
-        case KC_O:
-            SEND_STRING("a");
-            return false;
-        case KC_A:
-        case HM_A:
-            SEND_STRING("o");
-            return false;
-        case KC_Y:
-            SEND_STRING("p");
-            return false;
-        case KC_P:
-        case KC_H:
-        case HM_H:
-            SEND_STRING("y");
-            return false;
-        case KC_SPACE:
-        case LT(S_, KC_SPACE):
-            SEND_STRING("I");
-            return false;
-        case KC_W:
-        case KC_V:
-        case KC_Z:
-            SEND_STRING("s");
-            return false;
-        case KC_LPRN:
-            SEND_STRING("\"");
-            return false;
-        case KC_QUOTE:
-            SEND_STRING(")");
-            return false;
-        case KC_MINUS:
-            tap_code16(KC_GT);
-            return false;
-        case KC_Q:
-        case KC_J:
-            SEND_STRING("u");
-            prev_keycode = KC_Q;
-            return false;
-        case KC_C:
-            SEND_STRING("k");
-            return false;
-        case KC_B:
-            SEND_STRING("l");
-            return false;
-        case KC_L:
-            SEND_STRING("r");
-            return false;
-        case KC_R:
-        case HM_R:
-            SEND_STRING("l");
-            return false;
-        case KC_S:
-        case HM_S:
-            SEND_STRING("w");
-            return false;
-        case KC_X:
-            SEND_STRING("p");
-            return false;
-        case KC_I:
-        case HM_I:
-            SEND_STRING("'");
-            return false;
-        case KC_T:
-        case KC_N:
-        case HM_N:
-            SEND_STRING("'");
-            return false;
-        case MY_BSPC:
-            for (int i = 0; i < kk.last_key_count; i++) {
-                tap_code(kk.key_list[i]);
-            }
-            kk.key_count      = 0;
-            kk.last_key_count = 0;
-            return false;
-
-        // REMOVE HOLDS AND NON-CHARACTER INPUTS
-        case KC_ENTER:
-        case KC_TAB:
-        case KC_ESC:
-        case KC_LSFT:
-        case KC_LCTL:
-        case KC_RCTL:
-        case KC_LALT:
-        case KC_RALT:
-        case KC_LWIN:
-        case KC_RWIN:
-        case KC_DEL:
-            return false;
-
-        // Exclusive for portuguese
-        case MY_TILD:
-        case KC_TILD:
-        case QK_GESC:
-        case KC_GRAVE:
-            tap_code(KC_A);
-            return false;
-
-        default:
-            tap_code(prev_keycode);
-            return false;
-    }
-}
-
-bool remember_last_key_user(uint16_t keycode, keyrecord_t *record, uint8_t *remembered_mods) {
-    switch (keycode) {
-        case MY_MAGIC:
-        case QK_REP:
-        case KC_BSPC:
-        case LT(S_, KC_BSPC):
-        case LT(S_, MY_MAGIC):
-            return false; // Ignore ALTREP keys.
-    }
-
-    return true; // Other keys can be repeated.
-}
-
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (get_highest_layer(layer_state) == SEMIMAK) {
-        if (!process_sequence_transform(keycode, record, US_MAG1)) return false;
         if (!process_achordion(keycode, record)) return false;
-        if (keycode == LT(S_, KC_NO) && record->event.pressed && record->tap.count)
-            keycode = US_MAG1;
-        if (keycode == LT(S_, KC_OUT) && record->event.pressed && record->tap.count)
-            keycode = US_MAG3;
     }
 
     // int rep_count = get_repeat_key_count();
@@ -399,25 +250,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     uint8_t mod_state = get_mods();
     if (record->event.pressed) switch (keycode) {
-            case MY_BSPC:
-                if ((mod_state & MOD_BIT(KC_LCTL)) == MOD_BIT(KC_LCTL)) {
-                    kk.last_key_count = kk.key_count;
-                    kk.key_count      = 0;
-                    clear_mods();
-                    add_mods(MOD_BIT(KC_LCTL));
-                    tap_code(KC_BSPC);
-                    add_mods(mod_state);
-                } else {
-                    if (kk.key_count >= 0)
-                        register_code(KC_BACKSPACE);
-                    else {
-                        for (int i = 0; i < kk.key_count; i++)
-                            tap_code(KC_BSPC);
-                        kk.last_key_count = kk.key_count;
-                        kk.key_count      = 0;
-                    }
-                }
-                break;
             case MY_LGUI:
                 add_oneshot_mods(MOD_BIT(KC_LGUI));
                 add_mods(MOD_BIT(KC_LGUI));
@@ -446,18 +278,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case MY_LALT:
             case MY_LCTL:
             case MY_LSFT:   clear_mods(); break;
-            case MY_BSPC:   unregister_code(KC_BSPC); break;
         }
 
     switch (keycode) {
-        case LT(S_, MY_MAGIC):
-            if (record->tap.count && record->event.pressed) {
-                tap_code16(US_MAG1);
-                return false;
-                // return process_magic_key(get_last_keycode(), get_last_mods());
-            }
-            return true;
-
+        case MY_MAGIC:
+            if (record->event.pressed) { register_code(KC_P); }
+            else { unregister_code(KC_P); }
+            return false;
+        // oneshot shift if pressed, toggle layer if held:
         case SBIT:
             if (record->event.pressed) send_byte(get_highest_layer(layer_state));
             return false;
@@ -510,11 +338,58 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case BLASTER_DOUBLE_JUMP:
             return blaster_skate_jump_only(record);
-        case B_A:
-            return blaster_nrl_bob_short_dash(record);
-        case B_D:
-            return blaster_nrl_weave_short_dash(record);
 
+        case B_JUMP_FARM:
+            if (record->event.pressed)
+                key_trigger = 6;
+            else
+                key_trigger = 0;
+            return false;
+        case B_NRL_FARM:
+            if (record->event.pressed)
+                key_held = !key_held;
+            return false;
+        case B_A:
+            if (record->event.pressed)
+                SEND_STRING(SS_DOWN(X_A) SS_DOWN(X_S) SS_DELAY(30) SS_DELAY(333) SS_UP(X_S) SS_UP(X_A) SS_DELAY(150) SS_DOWN(X_LALT) SS_DELAY(20) SS_UP(X_LALT) SS_DELAY(40));
+            return false;
+        case B_D:
+            if (record->event.pressed)
+                SEND_STRING(SS_DOWN(X_D) SS_DOWN(X_S) SS_DELAY(30) SS_DELAY(333) SS_UP(X_S) SS_UP(X_D) SS_DELAY(150) SS_DOWN(X_LALT) SS_DELAY(20) SS_UP(X_LALT) SS_DELAY(40));
+            return false;
+
+        case BMACRO_DS:
+            if (record->event.pressed) {
+                register_code(KC_D);
+                register_code(KC_S);
+                wait_ms(370); // 370
+            } else {
+                unregister_code(KC_D);
+                unregister_code(KC_S);
+            }
+            return false;
+        case BMACRO_AS:
+            if (record->event.pressed) {
+                register_code(KC_A);
+                register_code(KC_S);
+                // wait_ms(343.33); // 370
+                wait_ms(370); // 370
+            } else {
+                unregister_code(KC_A);
+                unregister_code(KC_S);
+            }
+            return false;
+        case BLASTER_F:
+            if (record->event.pressed) {
+                register_code(KC_D);
+                register_code(KC_F);
+                wait_ms(60);
+            } else {
+                unregister_code(KC_D);
+                unregister_code(KC_F);
+            }
+            return false;
+        // GOHERE
         case BLASTER_A:
             return blaster_nrl_bob(record);
         case BLASTER_D:
@@ -596,7 +471,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void matrix_scan_user(void) {
-    sequence_transform_task();  // Add this line
     achordion_task();
     if (key_held && timer_elapsed(key_timer) > 920) {
 
@@ -642,7 +516,6 @@ void matrix_scan_user(void) {
 }
 
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-    post_process_sequence_transform();  // Add this line
 }
 
 void suspend_power_down_kb(void) {
@@ -659,8 +532,6 @@ void keyboard_post_init_user(void) {
     //HSV final = rgblight_get_hsv();
     //rgb_matrix_sethsv_noeeprom(final.h, 0, 255); // turn off color by setting saturation to 0
     rgb_matrix_mode(RGB_MATRIX_CUSTOM_CHATGPT);
-    kk.key_count      = 0;
-    kk.last_key_count = 0;
 }
 
 void matrix_init_user() {}
@@ -693,6 +564,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             break;
         case BLASTER:
             rgb_matrix_sethsv_noeeprom(HSV_WHITE);
+            // HSV gamergb = rgblight_get_hsv();
+            // rgb_matrix_sethsv_noeeprom(gamergb.h, 0, gamergb.s); // turn off color by setting saturation to 0
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_CHATGPT);
             break;
         case SEMIMAK:

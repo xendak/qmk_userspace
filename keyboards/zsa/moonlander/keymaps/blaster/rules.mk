@@ -10,10 +10,7 @@ SPACE_CADET_ENABLE = no
 LTO_ENABLE = yes
 OPT = fast
 
-#SRC = matrix.c
 SRC += achordion/achordion.c
-# SRC += sequence_transform/sequence_transform.c
-# SRC += sequence_transform/utils.c
 
 RGB_MATRIX_ENABLE = yes
 RGB_MATRIX_CUSTOM_USER = yes
@@ -26,8 +23,3 @@ REPEAT_KEY_ENABLE = no
 
 
 VPATH += keyboards/gboards
-
-# sequence_transform setup
-mkfile_dir := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
-include $(mkfile_dir)/tt/rules.mk
-# end sequence_transform setup
