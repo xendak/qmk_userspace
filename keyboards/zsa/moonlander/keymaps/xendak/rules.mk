@@ -11,7 +11,7 @@ LTO_ENABLE = yes
 OPT = fast
 
 #SRC = matrix.c
-SRC += achordion/achordion.c
+# SRC += achordion/achordion.c
 # SRC += sequence_transform/sequence_transform.c
 # SRC += sequence_transform/utils.c
 

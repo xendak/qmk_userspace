@@ -6,150 +6,72 @@
 // ⇑ one_shot_shift_symbol
 // ∁ capitalize_first_character_symbol
 
-
-
-
-// start
-// normal rules for same finger movement
-a👆 ⇒ ao
-o👆 ⇒ oa
-
-u👆 ⇒ ue
-e👆 ⇒ eu
-
-// pt bs
-c👈 ⇒ `a
-‸ee👆 ⇒ ‸eu
-// Europe
-
-
-‸we👆  ⇒ ‸we're⎵
-‸we👆r ⇒ ‸we's⎵
-‸we👆l ⇒ ‸we'll⎵
-‸we👆s ⇒ ‸we've⎵
-‸we👆d ⇒ ‸we'd⎵
-
-‸he👈 ⇒ ‸he
-‸he👈d ⇒ ‸he'd⎵
-‸he👈s ⇒ ‸he's⎵
-‸he👈l ⇒ ‸he'll⎵
-
-∇nt👆 ⇒ ∇n't
-∇ld👆s ⇒ ∇ld've
-
-// test
-‸oud⎵ ⇒ don't⎵
-
-‸👈 ⇒ ‸f
-
-‸👆 ⇒ ‸w
-
-‸i👈 ⇒ ‸i
-‸i👈l ⇒ ‸I'll⎵
-‸i👈v ⇒ ‸I've⎵
-‸i👈m ⇒ ‸I'm⎵
-‸i👈s ⇒ ‸it's⎵
-
-‸i👆 ⇒ ‸I⎵
-‸i👆l ⇒ ‸I'll⎵
-‸i👆v ⇒ ‸I've⎵
-‸i👆m ⇒ ‸I'm⎵
-
-// f👆    ⇒ fi
-
-‸it👆 ⇒ ‸it'
-‸it👆s ⇒ ‸it's⎵
-∇t👆 ⇒ ∇tw
-∇t👆s ⇒ ∇t's⎵
-
-
-if👆 ⇒ ife
-iff👆 ⇒ ifa
-i👆 ⇒ ike
-i👆👈 ⇒ iking⎵
-‸e👆 ⇒ ‸key
-‸k👆 ⇒ ‸ki
-ck👆 ⇒ cky
-ck👆l ⇒ ckly
-c👆 ⇒ ck
-
-‸oh👆 ⇒ ‸okay
-
-∇k👆 ⇒ ∇ky
-
-∇k👆g ⇒ ∇king
-∇k👆d ⇒ ∇kind
-
-p👆 ⇒ py
-x👆 ⇒ xp
-h👆 ⇒ hy
-y👆 ⇒ yp
-
-w👆 ⇒ ws
-s👆 ⇒ sw
-z👆 ⇒ zs
-v👆 ⇒ vs
-
-r👆 ⇒ rl
-l👆 ⇒ lr
-ab👆 ⇒ able
-ab👆y ⇒ ably
-ab👆i ⇒ abli
-b👆 ⇒ bl
-
-n👆 ⇒ nb
-
-t👆 ⇒ tw
-g👆 ⇒ gs
-
-quu👆  ⇒ qu
-qaa👆  ⇒ qa
-qee👆  ⇒ qe
-qii👆  ⇒ qi
-qoo👆  ⇒ qo
-
-
-// semimak-jq
-// ★ 👍
-
-qa★  ⇒ qa
-qe★  ⇒ qe
-qi★  ⇒ qi
-qo★  ⇒ qo
-
-s★  ⇒ sp
-ss★  ⇒ ps
-pj★  ⇒ ps
-r★  ⇒ rl
-l★  ⇒ lr
-b★  ⇒ bh
-n★  ⇒ nh
-h★  ⇒ hb
-x★  ⇒ xc
-f★  ⇒ fl
-u★  ⇒ ue
-e★  ⇒ eu
-w★  ⇒ we
-t★  ⇒ tm
-m★  ⇒ mt
-o★  ⇒ oa
-a★  ⇒ ao
-y★  ⇒ yi
-i★  ⇒ iy
-p★  ⇒ pl
-g★  ⇒ gc
-c★  ⇒ cg
-
 // global rules
+
+// helping with Z
+zl ⇒ zil
+zzl ⇒ zzl
+
+zn ⇒ zin
+zg ⇒ zig
+zm ⇒ zim
+
+// something for p
+pfy ⇒ phy
+pz  ⇒ ps
+zp  ⇒ sp
+zzp ⇒ zp
+
+// helping with X
+exx ⇒ exp
+axx ⇒ axp
+oxx ⇒ oxp
+ixx ⇒ ixp
+uxx ⇒ uxp
+exxz ⇒ exx
+axxz ⇒ axx
+ixxz ⇒ ixx
+uxxz ⇒ uxx
+oxxz ⇒ oxx
 
 qe  ⇒ que
 qa  ⇒ qua
 qi  ⇒ qui
 qo  ⇒ quo
 
-‸dont⎵      ⇒ ‸don't⎵
-‸didnt⎵     ⇒ ‸didn't⎵
-‸youre⎵     ⇒ ‸you're⎵
-‸theyre⎵    ⇒ ‸they're⎵
-‸wont⎵      ⇒ ‸won't⎵
-‸cant⎵      ⇒ ‸can't⎵
+quu  ⇒ qu
+qaa  ⇒ qa
+qee  ⇒ qe
+qii  ⇒ qi
+qoo  ⇒ qo
+
+// for *queen
+qqe  ⇒ quee
+
+didnt⎵     ⇒ didn't⎵
+youre⎵     ⇒ you're⎵
+theyre⎵    ⇒ they're⎵
+wont⎵      ⇒ won't⎵
+cant⎵      ⇒ can't⎵
+dont⎵      ⇒ don't⎵
+
+Didnt⎵     ⇒ Didn't⎵
+Youre⎵     ⇒ You're⎵
+Theyre⎵    ⇒ They're⎵
+Wont⎵      ⇒ Won't⎵
+Cant⎵      ⇒ Can't⎵
+Dont⎵      ⇒ Don't⎵
+
+didnt'⎵     ⇒ didnt⎵
+youre'⎵     ⇒ youre⎵
+theyre'⎵    ⇒ theyre⎵
+wont'⎵      ⇒ wont⎵
+cant'⎵      ⇒ cant⎵
+dont'⎵      ⇒ dont⎵
+
+Didnt'⎵     ⇒ Didnt⎵
+Youre'⎵     ⇒ Youre⎵
+Theyre'⎵    ⇒ Theyre⎵
+Wont'⎵      ⇒ Wont⎵
+Cant'⎵      ⇒ Cant⎵
+Dont'⎵      ⇒ Dont⎵

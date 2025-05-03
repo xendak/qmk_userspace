@@ -2,9 +2,7 @@
 #include "version.h"
 #include "quantum.h"
 
-#include "achordion/achordion.h"
-#include "../../../../shared/blaster.h"
-#include "../../../../shared/pwm.h"
+// #include "achordion/achordion.h"
 
 #define ______ KC_TRANSPARENT
 
@@ -34,11 +32,10 @@
 
 
 enum layers {
-    SEMIMAK,
+    RAIN,
     GAMES,
     MAPLE,
     BLASTER,
-    BMAGE,
     FUNCTION,
     SYMBOLS,
 };
@@ -65,12 +62,14 @@ enum custom_keycodes {
     B_M_SLOW,
     B_SNARL,
     BLASTER_A,
+    BLASTER_O,
     BLASTER_D,
     BLASTER_F,
     BLASTER_AS,
     BLASTER_DS,
     BMACRO_DS,
     BMACRO_AS,
+    M_HELPER,
     B_JUMP_FARM,
     B_NRL_FARM,
     B_A,
@@ -78,6 +77,7 @@ enum custom_keycodes {
     BLASTER_DOUBLE_JUMP,
     BLASTER_SGP,
     B_SMAG,
+    B_FSMAG,
     B_BUNKER,
     B_SKSSP,
     B_SKATE,
@@ -102,8 +102,14 @@ struct key_list {
 };
 struct key_list kk;
 
-#include "g/keymap_combo.h"
 #include "tt/sequence_transform.h"
+
+#include "../../../../shared/blaster.h"
+#include "../../../../shared/pwm.h"
+#include "g/keymap_combo.h"
+#include "../../../../shared/rand.h"
+#include "helper_maplestory.c"
+
 #include "mlayout.h"
 
 bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) {
@@ -134,8 +140,6 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
             return 30;
         case BLASTER1:
         case BLASTER2:
-        case BMAGE1:
-        case BMAGE2:
         case MAPLE1:
         case MAPLE2:
         case ALL_MAPLE1:
@@ -148,30 +152,30 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     return COMBO_TERM;
 }
 
-uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-    switch (tap_hold_keycode) {
-        case MY_LEFT:
-        case MY_UP:
-        case MY_DOWN:
-        case MY_RIGHT:
-        case MY_RIGHP:
-        case LT(F_, KC_SCLN):
-        case LT(F_, KC_DOT):
-        case LT(F_, KC_ENTER):
-        case LT(F_, KC_ESCAPE):
-        case LT(F_, KC_LCTL):
-        case LT(F_, KC_MINUS):
-        case MY_LEFTP:
-        case LT(F_, KC_Z):
-        case LT(F_, KC_Y):
-        case LT(F_, KC_F):
-            // case LT(S_, KC_SPACE):
-            // case LT(S_, KC_BSPC):
-            return 0; // Bypass Achordion for these keys.
-    }
+// uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+//     switch (tap_hold_keycode) {
+//         case MY_LEFT:
+//         case MY_UP:
+//         case MY_DOWN:
+//         case MY_RIGHT:
+//         case MY_RIGHP:
+//         case LT(F_, KC_SCLN):
+//         case LT(F_, KC_DOT):
+//         case LT(F_, KC_ENTER):
+//         case LT(F_, KC_ESCAPE):
+//         case LT(F_, KC_LCTL):
+//         case LT(F_, KC_MINUS):
+//         case MY_LEFTP:
+//         case LT(F_, KC_Z):
+//         case LT(F_, KC_Y):
+//         case LT(F_, KC_F):
+//             // case LT(S_, KC_SPACE):
+//             // case LT(S_, KC_BSPC):
+//             return 0; // Bypass Achordion for these keys.
+//     }
 
-    return TAPPING_TERM * 2 + 150; // Otherwise use a timeout of 800 ms.
-}
+//     return TAPPING_TERM * 2 + 150; // Otherwise use a timeout of 800 ms.
+// }
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -209,29 +213,26 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         case SEMI31: case SEMI32: case SEMI33: case SEMI34: case SEMI35: case SEMI36: case SEMI37: case SEMI38: case SEMI39: case SEMI40:
         case SEMI41: case SEMI42: case SEMI43: case SEMI44: case SEMI45: case SEMI46: case SEMI47: case SEMI48: case SEMI49: case SEMI50:
         case SEMI51: case SEMI52: case SEMI53: case SEMI54:// case SEMI55: case SEMI56: case SEMI57: case SEMI58: case SEMI59: case SEMI60:
-            if (get_highest_layer(layer_state) == SEMIMAK) return true;
+            if (get_highest_layer(layer_state) == RAIN) return true;
             else { break; }
         // MAPLE_COMBOS
-        case ALL_MAPLE1:
-            if (get_highest_layer(layer_state) == BLASTER ||
-                get_highest_layer(layer_state) == MAPLE   ||
-                get_highest_layer(layer_state) == BMAGE )
-                return true;
-            else { break; }
+        // case ALL_MAPLE1:
+        // case ALL_MAPLE2:
+        //     if (get_highest_layer(layer_state) == BLASTER ||
+        //         get_highest_layer(layer_state) == MAPLE)
+        //         return true;
+        //     else { break; }
         case MAPLE1: case MAPLE2:
             if (get_highest_layer(layer_state) == MAPLE) return true;
             else { break; }
-        case BLASTER1: case BLASTER2:
-            if (get_highest_layer(layer_state) == BLASTER) return true;
-            else { break; }
-        case BMAGE1: case BMAGE2:
-            if (get_highest_layer(layer_state) == BMAGE) return true;
-            else { break; }
+        // case BLASTER1: case BLASTER2:
+        //     if (get_highest_layer(layer_state) == BLASTER) return true;
+        //     else { break; }
     }
     return false;
 }
 
-bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
     // Exceptionally consider the following chords as holds, even though they
     // are on the same hand in Dvorak.
     switch (tap_hold_keycode) {
@@ -249,7 +250,7 @@ bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, ui
     // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
 
     // Otherwise, follow the opposite hands rule.
-    return achordion_opposite_hands(tap_hold_record, other_record);
+    return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
 bool process_magic_key(uint16_t prev_keycode, uint8_t prev_mods) {
@@ -384,9 +385,9 @@ bool remember_last_key_user(uint16_t keycode, keyrecord_t *record, uint8_t *reme
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-    if (get_highest_layer(layer_state) == SEMIMAK) {
+    if (get_highest_layer(layer_state) == RAIN) {
         if (!process_sequence_transform(keycode, record, US_MAG1)) return false;
-        if (!process_achordion(keycode, record)) return false;
+        // if (!process_achordion(keycode, record)) return false;
         if (keycode == LT(S_, KC_NO) && record->event.pressed && record->tap.count)
             keycode = US_MAG1;
         if (keycode == LT(S_, KC_OUT) && record->event.pressed && record->tap.count)
@@ -450,6 +451,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
 
     switch (keycode) {
+        case KC_BSPC:
+            static bool delete_key;
+            if (record->event.pressed) {
+                if ((mod_state & MOD_BIT(KC_LSFT)) == MOD_BIT(KC_LSFT)) {
+                    del_mods(MOD_MASK_SHIFT);
+                    register_code(KC_DELETE);
+                    delete_key = true;
+                    set_mods(mod_state);
+                    return false;
+                }
+            } else {
+                if (delete_key) {
+                    unregister_code(KC_DELETE);
+                    delete_key = false;
+                    return false;
+                }
+            }
+            return true;
         case LT(S_, MY_MAGIC):
             if (record->tap.count && record->event.pressed) {
                 tap_code16(US_MAG1);
@@ -508,7 +527,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_S);
             }
             return false;
-        case BLASTER_DOUBLE_JUMP:
+        case BLASTER_DOUBLE_JUMP  :
             return blaster_skate_jump_only(record);
         case B_A:
             return blaster_nrl_bob_short_dash(record);
@@ -521,6 +540,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return blaster_nrl_weave(record);
         case B_SKATE:
             return blaster_skate(record);
+        case BLASTER_O:
+            return blaster_bullet_blast(record);
         case B_SKSSP:
             if (record->event.pressed)
                 key_trigger = 2;
@@ -541,12 +562,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case B_SNARL:
             if (record->event.pressed)
-                key_trigger = 5;
+                key_trigger = 4;
             else
                 key_trigger = 0;
             return false;
+        case M_HELPER:
+            if (record->event.pressed)
+                key_held = !key_held;
+            return false;
+        case B_FSMAG:
+            return blaster_smag(record, KC_A);
         case B_SMAG:
-            return blaster_smag(record);
+            return blaster_smag(record, KC_D);
         case BLASTER_SGP:
             if (record->event.pressed)
                 key_trigger = 3;
@@ -597,19 +624,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 void matrix_scan_user(void) {
     sequence_transform_task();  // Add this line
-    achordion_task();
-    if (key_held && timer_elapsed(key_timer) > 920) {
-
-        register_code(KC_X);
-        wait_ms(670);
-        unregister_code(KC_X);
+    // achordion_task();
+    if (key_held && timer_elapsed(key_timer) > 60) {
+        helper_maplestory();
         key_timer = timer_read32();
     }
     switch (key_trigger) {
         // NRL_BOB
         case 1: {
             if (timer_elapsed(key_timer) > 60) {
-                blaster_nrl_macro(weave);
+                blaster_nrl_macro();
                 weave     = !weave;
                 key_timer = timer_read32();
             }
@@ -628,7 +652,7 @@ void matrix_scan_user(void) {
                 key_timer = timer_read32();
             }
         } break;
-        case 5: {
+        case 4: {
             // SNARL
             if (timer_elapsed(key_timer) > 60) {
                 blaster_snarl();
@@ -685,17 +709,11 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             rgb_matrix_sethsv_noeeprom(cyanrgb.h, cyanrgb.s, 255);
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_CHATGPT);
             break;
-        case BMAGE:
-            rgb_matrix_sethsv_noeeprom(HSV_GREEN);
-            HSV bmagergb = rgblight_get_hsv();
-            rgb_matrix_sethsv_noeeprom(bmagergb.h, bmagergb.s, 255);
-            rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_CHATGPT);
-            break;
         case BLASTER:
             rgb_matrix_sethsv_noeeprom(HSV_WHITE);
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_CHATGPT);
             break;
-        case SEMIMAK:
+        case RAIN:
             rgb_matrix_sethsv_noeeprom(99, 255, 255);
             rgb_matrix_mode_noeeprom(RGB_MATRIX_CUSTOM_CHATGPT);
             break;
