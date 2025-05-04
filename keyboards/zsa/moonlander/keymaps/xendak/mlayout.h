@@ -9,11 +9,11 @@
 
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT(
-        'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 
-        'L', 'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-        'R', 'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-        'L', 'L', 'L', 'L', 'L', 'L',           'R', 'R', 'R', 'R', 'R', 'R', 
-        'L', 'L', 'L', 'L', 'R', 'R',           'R', 'R', 'R', 'R', 'R', 'R', 
+        'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L',
+        'L', 'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R',
+        'R', 'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',           'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'R', 'R',           'R', 'R', 'R', 'R', 'R', 'R',
                        'L', 'L', 'L',           'R', 'R', 'R'
     );
 
@@ -23,8 +23,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,       KC_P,          KC_F,            KC_L,           KC_K,           KC_V,           RGB_HUI,            RGB_HUI,          MY_TILD,    KC_W,           KC_O,           KC_U,           KC_DOT,         KC_DEL,
        LT(F_, KC_COMMA),  KC_N,          KC_S,            KC_H,           KC_T,           KC_M,           KC_ENTER,           KC_ENTER,         KC_C,       KC_D,           KC_A,           KC_E,           KC_I,          LT(F_, KC_SLASH),
             KC_LSFT,      KC_B,          KC_X,            KC_J,           KC_Y,           KC_Q,                                                 KC_QUOT,    KC_G,           KC_SCLN,        KC_UNDS,        KC_Z,           KC_RSFT,
-            KC_LCTL,      KC_RIGHT,      KC_DOWN,         MY_LEFT,        MY_UP,          MO(F_),                                               MO(F_),     MY_DOWN,        MY_RIGHT,       KC_SCLN,        KC_SCLN,        KC_RCTL,
-                                                      LT(S_, KC_R),  OSM(MOD_LSFT),       KC_ENTER,                                             KC_DEL,  OSM(MOD_RSFT),     LT(S_, KC_SPACE)
+            KC_LCTL,      KC_RIGHT,      KC_DOWN,         KC_LGUI,        KC_LALT,        MO(F_),                                               MO(F_),     KC_RALT,        KC_RGUI,        KC_SCLN,        KC_SCLN,        KC_RCTL,
+                                                      LT(S_, KC_R),    OSM(MOD_LSFT),     KC_ENTER,                                             KC_DEL,  OSM(MOD_RSFT),     LT(S_, KC_SPACE)
             ),
     [GAMES] = LAYOUT_moonlander(
             KC_ESCAPE,    ______,         ______,         ______,         ______,         ______,         ______,             ______,           ______,     ______,         ______,         ______,         ______,         ______,
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [SYMBOLS] = LAYOUT_moonlander(
             KC_GRAVE,     KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        KC_EQUAL,           KC_MINUS,         KC_KP_6,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_ESCAPE,
             ______,       KC_BSLS,        KC_LBRC,        KC_AT,          KC_RBRC,        KC_PIPE,        ______,             ______,           KC_UNDS,    KC_PIPE,        KC_MINUS,       KC_AMPR,        KC_ASTR,        KC_F12,
-            KC_SCLN,      KC_MINUS,       KC_LPRN,        KC_HASH,        KC_RPRN,        KC_ASTR,        ______,             ______,           KC_ASTR,    KC_SCLN,        KC_KP_PLUS,     KC_MINUS,       KC_UNDS,        ______,
+            KC_SCLN,      KC_MINUS,       KC_LPRN,        KC_HASH,        KC_RPRN,        KC_ASTR,        ______,             ______,           KC_ASTR,    KC_COLN,        KC_KP_PLUS,     KC_MINUS,       KC_UNDS,        ______,
             ______,       KC_PERC,        KC_LCBR,        KC_DQUO,        KC_RCBR,        KC_GRAVE,                                             KC_AMPR,    KC_EQUAL,       KC_LT,          KC_GT,          KC_EXLM,        ______,
             ______,       ______,         ______,         ______,         ______,         ______,                                               ______,     ______,         KC_DOT,         KC_0,           ______,         ______,
                                                           KC_LSFT,        ______,         ______,                                               ______,     ______,         KC_RSFT

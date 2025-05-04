@@ -10,3 +10,4 @@
 *.bin
 *.uf2
 qmk_firmware/
+pwm.h
