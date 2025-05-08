@@ -12,8 +12,9 @@
 #define HM_R RCTL_T(KC_R)
 #define HM_T RALT_T(KC_T)
 #define HM_A LALT_T(KC_A)
-#define HM_I LALT_T(KC_I)
-#define HM_N RALT_T(KC_N)
+
+#define HM_I RSFT_T(KC_I)
+#define HM_N LSFT_T(KC_N)
 //#define THUMBR2 LCTL_T(KC_SCLN)
 #define THUMBR2 US_MAG2
 
