@@ -21,8 +21,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [RAIN] = LAYOUT_moonlander(
             KC_ESCAPE,    KC_1,          KC_2,            KC_3,           KC_4,           KC_5,           RGB_SAI,            RGB_VAI,          KC_6,       KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
             KC_TAB,       KC_P,          KC_F,            KC_L,           KC_K,           KC_V,           RGB_HUI,            RGB_HUI,          MY_TILD,    KC_W,           KC_O,           KC_U,           KC_DOT,         KC_DEL,
-       LT(F_, KC_COMMA),  HM_N,          KC_S,            KC_H,           KC_T,           KC_M,           KC_ENTER,           KC_ENTER,         KC_C,       KC_D,           KC_A,           KC_E,           HM_I,          LT(F_, KC_SLASH),
-            KC_LSFT,      KC_B,          KC_X,            KC_J,           KC_Y,           KC_Q,                                                 KC_QUOT,    KC_G,           KC_SCLN,        KC_UNDS,        KC_Z,           KC_RSFT,
+       LT(F_, KC_COMMA),  HM_N,          KC_S,            KC_H,           KC_T,           KC_M,           KC_ENTER,           KC_ENTER,         KC_C,       KC_D,           KC_A,           KC_E,           HM_I,          LT(F_, KC_QUOT),
+            KC_LSFT,      KC_B,          KC_X,            KC_J,           KC_Y,           KC_Q,                                                 KC_SLASH,   KC_G,           KC_SCLN,        KC_UNDS,        KC_Z,           KC_RSFT,
             KC_LCTL,      KC_RIGHT,      KC_DOWN,         KC_LGUI,        KC_LALT,        MO(F_),                                               MO(F_),     KC_RALT,        KC_RGUI,        KC_SCLN,        KC_SCLN,        KC_RCTL,
                                                       LT(S_, KC_R),    OSM(MOD_LSFT),     KC_ENTER,                                             KC_DEL,  OSM(MOD_RSFT),     LT(S_, KC_SPACE)
             ),

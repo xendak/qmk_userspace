@@ -14,14 +14,14 @@ bool blaster_nrl_weave(keyrecord_t *record) {
         // SEND_STRING( SS_DOWN(X_D) SS_DOWN(X_S) SS_DELAY(NRL_DELAY) SS_UP(X_S) SS_UP(X_D) SS_DELAY(15) );
 
         SEND_STRING(
-            SS_DOWN(X_D) SS_DELAY(5) 
+            SS_DOWN(X_D) SS_DELAY(5)
             SS_DOWN(X_K) SS_DELAY(60) SS_UP(X_K) SS_DELAY(90)
             SS_DOWN(X_J) SS_DELAY(30) SS_UP(X_J) SS_DELAY(146)
             SS_UP(X_D)
-            // SS_DELAY(6) SS_DOWN(X_JMP) SS_DELAY(20) SS_UP(X_JMP) 
+            // SS_DELAY(6) SS_DOWN(X_JMP) SS_DELAY(20) SS_UP(X_JMP)
         );
 
-    } 
+    }
     return false;
 }
 
@@ -34,14 +34,14 @@ bool blaster_nrl_bob(keyrecord_t *record) {
         // SEND_STRING( SS_DOWN(X_A) SS_DOWN(X_S) SS_DELAY(NRL_DELAY) SS_UP(X_S) SS_UP(X_A) SS_DELAY(7) );
 
         SEND_STRING(
-            SS_DOWN(X_A) SS_DELAY(5) 
+            SS_DOWN(X_A) SS_DELAY(5)
             SS_DOWN(X_K) SS_DELAY(60) SS_UP(X_K) SS_DELAY(90)
             SS_DOWN(X_J) SS_DELAY(30) SS_UP(X_J) SS_DELAY(146)
             SS_UP(X_A)
             // SS_DELAY(6) SS_DOWN(X_JMP) SS_DELAY(20) SS_UP(X_JMP)
         );
 
-    } 
+    }
     return false;
 
 }
@@ -114,6 +114,36 @@ bool blaster_smag(keyrecord_t *record, uint16_t key) {
     return false;
 }
 
+bool blaster_smag_gms(keyrecord_t *record, uint16_t key) {
+            // record, KC_A);
+
+    if (record->event.pressed) {
+        weave = false;
+        wait_ms(5);
+        unregister_code(K_JMP);
+        register_code(key);
+        wait_ms(55);
+        register_code(KC_X);
+        wait_ms(55);
+        register_code(KC_N);
+        wait_ms(80);
+        unregister_code(KC_N);
+        wait_ms(180);
+        unregister_code(KC_X);
+        wait_ms(150);
+        register_code(KC_K);
+        wait_ms(90);
+        unregister_code(KC_K);
+        wait_ms(185);
+        unregister_code(key);
+        wait_ms(100);
+        tap_code(KC_LALT);
+        wait_ms(25);
+    }
+    return false;
+}
+
+
 // ON MATRIX
 void blaster_nrl_macro(void) {
     unregister_code(K_JMP);
@@ -122,18 +152,18 @@ void blaster_nrl_macro(void) {
 
     if (weave) {
         SEND_STRING(
-            SS_DOWN(X_D) SS_DELAY(5) 
+            SS_DOWN(X_D) SS_DELAY(5)
             SS_DOWN(X_K) SS_DELAY(60) SS_UP(X_K) SS_DELAY(90)
             SS_DOWN(X_J) SS_DELAY(30) SS_UP(X_J) SS_DELAY(146)
-            // SS_DOWN(X_S) SS_DELAY(330) SS_UP(X_S) SS_DELAY(7) 
-            SS_UP(X_D) SS_DELAY(6) SS_DOWN(X_JMP) SS_DELAY(20) SS_UP(X_JMP) 
+            // SS_DOWN(X_S) SS_DELAY(330) SS_UP(X_S) SS_DELAY(7)
+            SS_UP(X_D) SS_DELAY(6) SS_DOWN(X_JMP) SS_DELAY(20) SS_UP(X_JMP)
             SS_DELAY(32));
     } else {
         SEND_STRING(
-            SS_DOWN(X_A) SS_DELAY(5) 
+            SS_DOWN(X_A) SS_DELAY(5)
             SS_DOWN(X_K) SS_DELAY(60) SS_UP(X_K) SS_DELAY(90)
             SS_DOWN(X_J) SS_DELAY(30) SS_UP(X_J) SS_DELAY(146)
-            // SS_DOWN(X_S) SS_DELAY(330) SS_UP(X_S) SS_DELAY(7) 
+            // SS_DOWN(X_S) SS_DELAY(330) SS_UP(X_S) SS_DELAY(7)
             SS_UP(X_A) SS_DELAY(6) SS_DOWN(X_JMP) SS_DELAY(20) SS_UP(X_JMP)
             SS_DELAY(32));
     }

@@ -572,7 +572,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 key_held = !key_held;
             return false;
         case B_FSMAG:
-            return blaster_smag(record, KC_A);
+            return blaster_smag_gms(record, KC_D);
         case B_SMAG:
             return blaster_smag(record, KC_D);
         case BLASTER_SGP:
