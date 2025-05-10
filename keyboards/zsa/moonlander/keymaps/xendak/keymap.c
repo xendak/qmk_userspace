@@ -109,7 +109,7 @@ struct key_list kk;
 #include "../../../../shared/pwm.h"
 #include "g/keymap_combo.h"
 #include "../../../../shared/rand.h"
-#include "helper_maplestory.c"
+// #include "helper_maplestory.c"
 
 #include "mlayout.h"
 
@@ -153,31 +153,6 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     return COMBO_TERM;
 }
 
-// uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-//     switch (tap_hold_keycode) {
-//         case MY_LEFT:
-//         case MY_UP:
-//         case MY_DOWN:
-//         case MY_RIGHT:
-//         case MY_RIGHP:
-//         case LT(F_, KC_SCLN):
-//         case LT(F_, KC_DOT):
-//         case LT(F_, KC_ENTER):
-//         case LT(F_, KC_ESCAPE):
-//         case LT(F_, KC_LCTL):
-//         case LT(F_, KC_MINUS):
-//         case MY_LEFTP:
-//         case LT(F_, KC_Z):
-//         case LT(F_, KC_Y):
-//         case LT(F_, KC_F):
-//             // case LT(S_, KC_SPACE):
-//             // case LT(S_, KC_BSPC):
-//             return 0; // Bypass Achordion for these keys.
-//     }
-
-//     return TAPPING_TERM * 2 + 150; // Otherwise use a timeout of 800 ms.
-// }
-
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HM_E:
@@ -194,11 +169,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MY_LEFTP:
         case LT(F_, KC_F):
         case LT(F_, KC_Y):
-        case LT(F_, KC_SCLN): // case LT(S_, KC_SPACE): case LT(S_, KC_BSPC):
+        case LT(F_, KC_SCLN):
+        // case HM_I:
+        // case HM_N:
             return TAPPING_TERM + 40;
-        case MY_LEFT:
-        case MY_UP:
-        case MY_DOWN:
         case MY_RIGHT:
             return TAPPING_TERM - 40;
         default:
@@ -234,23 +208,26 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 }
 
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
-    // Exceptionally consider the following chords as holds, even though they
-    // are on the same hand in Dvorak.
-    switch (tap_hold_keycode) {
-        case MY_UP:
-        case MY_RIGHT:
-            switch (other_keycode) {
-                case KC_TAB:
-                case KC_1 ... KC_5:
-                    return true;
-            }
-    }
+    // switch (tap_hold_keycode) {
+    //     case HM_I:
+    //         switch(other_keycode) {
+    //             case KC_S:
+    //             case KC_H:
+    //             case KC_T:
+    //                 return false;
+    //         }
+    //     break;
 
-    // Also allow same-hand holds when the other key is in the rows below the
-    // alphas. I need the `% (MATRIX_ROWS / 2)` because my keyboard is split.
-    // if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+    //     case HM_N:
+    //         switch(other_keycode) {
+    //             case KC_E:
+    //             case KC_A:
+    //             case KC_D:
+    //                 return false;
+    //         }
+    //         break;
+    // }
 
-    // Otherwise, follow the opposite hands rule.
     return get_chordal_hold_default(tap_hold_record, other_record);
 }
 
@@ -627,7 +604,7 @@ void matrix_scan_user(void) {
     sequence_transform_task();  // Add this line
     // achordion_task();
     if (key_held && timer_elapsed(key_timer) > 60) {
-        helper_maplestory();
+        // helper_maplestory();
         key_timer = timer_read32();
     }
     switch (key_trigger) {

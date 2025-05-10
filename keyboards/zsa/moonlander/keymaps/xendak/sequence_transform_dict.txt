@@ -17,10 +17,21 @@ zg ⇒ zig
 zm ⇒ zim
 
 // something for p
-pfy ⇒ phy
+pfz ⇒ phy
 pz  ⇒ ps
 zp  ⇒ sp
 zzp ⇒ zp
+
+// FIX: a->w, e->w, (mwodify?)w->h->
+
+// help for my ym tm mt
+mz  ⇒ my
+tz  ⇒ ty
+zt  ⇒ yt
+
+// help with k
+xey  ⇒ key
+
 
 // helping with X
 exx ⇒ exp
