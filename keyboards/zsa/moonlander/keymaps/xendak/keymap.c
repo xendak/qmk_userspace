@@ -105,13 +105,12 @@ struct key_list kk;
 
 #include "tt/sequence_transform.h"
 
+#include "mlayout.h"
 #include "../../../../shared/blaster.h"
 #include "../../../../shared/pwm.h"
 #include "g/keymap_combo.h"
 #include "../../../../shared/rand.h"
 // #include "helper_maplestory.c"
-
-#include "mlayout.h"
 
 bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -137,7 +136,7 @@ bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) 
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
-        case SEMI50: case SEMI51: case SEMI52: case SEMI53: case SEMI54:// case SEMI55: case SEMI56: case SEMI57: case SEMI58: case SEMI59: case SEMI60:
+        case MAIN50: case MAIN51: case MAIN52: case MAIN53: case MAIN54:// case MAIN55: case MAIN56: case MAIN57: case MAIN58: case MAIN59: case MAIN60:
             return 30;
         case BLASTER1:
         case BLASTER2:
@@ -146,7 +145,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case ALL_MAPLE1:
             return 110;
     }
-    if (combo->keys[0] == LT(S_, KC_SPACE) || combo->keys[0] == US_MAG3 || combo->keys[0] == LT(S_, KC_NO)) { // if first key in the array is Enter
+    if (combo->keys[0] == LT(S_, KC_SPACE) || combo->keys[0] == LT(S_, KC_R) || combo->keys[0] == LT(S_, KC_NO)) { // if first key in the array is Enter
         return 30;
     }
 
@@ -157,6 +156,8 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HM_E:
         case HM_A:
+        case HM_I:
+        case HM_N:
             return QUICK_TAP_TERM;
         default:
             return 0;
@@ -170,11 +171,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LT(F_, KC_F):
         case LT(F_, KC_Y):
         case LT(F_, KC_SCLN):
-        // case HM_I:
-        // case HM_N:
             return TAPPING_TERM + 40;
-        case MY_RIGHT:
-            return TAPPING_TERM - 40;
+        case LT(S_, KC_R):
+        case LT(S_, KC_SPACE):
+        case HM_I:
+        case HM_N:
+            return TAPPING_TERM + 1;
         default:
             return TAPPING_TERM;
     }
@@ -182,12 +184,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     switch (combo_index) {
-        case SEMI01: case SEMI02: case SEMI03: case SEMI04: case SEMI05: case SEMI06: case SEMI07: case SEMI08: case SEMI09: case SEMI10:
-        case SEMI11: case SEMI12: case SEMI13: case SEMI14: case SEMI15: case SEMI16: case SEMI17: case SEMI18: case SEMI19: case SEMI20:
-        case SEMI21: case SEMI22: case SEMI23: case SEMI24: case SEMI25: case SEMI26: case SEMI27: case SEMI28: case SEMI29: case SEMI30:
-        case SEMI31: case SEMI32: case SEMI33: case SEMI34: case SEMI35: case SEMI36: case SEMI37: case SEMI38: case SEMI39: case SEMI40:
-        case SEMI41: case SEMI42: case SEMI43: case SEMI44: case SEMI45: case SEMI46: case SEMI47: case SEMI48: case SEMI49: case SEMI50:
-        case SEMI51: case SEMI52: case SEMI53: case SEMI54:// case SEMI55: case SEMI56: case SEMI57: case SEMI58: case SEMI59: case SEMI60:
+        case MAIN01: case MAIN02: case MAIN03: case MAIN04: case MAIN05: case MAIN06: case MAIN07: case MAIN08: case MAIN09: case MAIN10:
+        case MAIN11: case MAIN12: case MAIN13: case MAIN14: case MAIN15: case MAIN16: case MAIN17: case MAIN18: case MAIN19: case MAIN20:
+        case MAIN21: case MAIN22: case MAIN23: case MAIN24: case MAIN25: case MAIN26: case MAIN27: case MAIN28: case MAIN29: case MAIN30:
+        case MAIN31: case MAIN32: case MAIN33: case MAIN34: case MAIN35: case MAIN36: case MAIN37: case MAIN38: case MAIN39: case MAIN40:
+        case MAIN41: case MAIN42: case MAIN43: case MAIN44: case MAIN45: case MAIN46: case MAIN47: case MAIN48: case MAIN49: case MAIN50:
+        case MAIN51: case MAIN52: case MAIN53: case MAIN54:// case MAIN55: case MAIN56: case MAIN57: case MAIN58: case MAIN59: case MAIN60:
             if (get_highest_layer(layer_state) == RAIN) return true;
             else { break; }
         // MAPLE_COMBOS
