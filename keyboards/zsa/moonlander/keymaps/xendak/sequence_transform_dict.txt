@@ -16,6 +16,8 @@ zn ⇒ zin
 zg ⇒ zig
 zm ⇒ zim
 
+zze ⇒ ize
+
 // something for p
 pfz ⇒ phy
 pz  ⇒ ps
@@ -26,11 +28,20 @@ zzp ⇒ zp
 
 // help for my ym tm mt
 mz  ⇒ my
+my  ⇒ mz
+
 tz  ⇒ ty
+ty  ⇒ tz
+
 zt  ⇒ yt
+yt  ⇒ zt
+
+kz  ⇒ ky
+ky  ⇒ kz
 
 // help with k
 xey  ⇒ key
+key  ⇒ xey
 
 
 // helping with X
