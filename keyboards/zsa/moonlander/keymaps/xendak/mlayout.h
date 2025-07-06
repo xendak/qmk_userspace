@@ -27,11 +27,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                       LT(S_, KC_R),    OSM(MOD_LSFT),     KC_ENTER,                                             KC_DEL,  OSM(MOD_RSFT),     LT(S_, KC_SPACE)
             ),
     [GAMES] = LAYOUT_moonlander(
-            KC_ESCAPE,    ______,         ______,         ______,         ______,         ______,         ______,             ______,           ______,     ______,         ______,         ______,         ______,         ______,
-            KC_TAB,       KC_I,           KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,               ______,           KC_Y,       KC_U,           KC_UP,          KC_O,           KC_P,           KC_EXLM,
-           LT(F_,KC_Z),   KC_LSFT,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,               ______,           KC_H,       KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_QUOTE,       KC_QUES,
-            KC_LSFT,      KC_M,           KC_X,           KC_C,           KC_V,           KC_B,                                                 KC_N,       KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          KC_SLASH,
-            KC_LCTL,      KC_SLASH,       KC_BSLS,        KC_LGUI,        KC_LALT,        KC_BSPC,                                              ______,     KC_LALT,        KC_RBRC,        KC_LEFT,        KC_DOWN,        KC_RIGHT,
+            KC_ESCAPE,    ______,         ______,         ______,         ______,         ______,         ______,             ______,           ______,     ______,         ______,         ______,         ______,         JS_0,
+            KC_TAB,       KC_I,           KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,               ______,           KC_Y,       KC_U,           KC_UP,          KC_O,           KC_P,           JS_1,
+           LT(F_,KC_Z),   KC_LSFT,        KC_A,           KC_S,           KC_D,           KC_F,           KC_G,               ______,           KC_H,       KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_QUOTE,       KC_K,
+            KC_LSFT,      KC_M,           KC_X,           KC_C,           KC_V,           KC_B,                                                 KC_N,       KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          JS_2,
+            KC_LCTL,      KC_SLASH,       KC_BSLS,        KC_LGUI,        KC_LALT,        KC_BSPC,                                              ______,     KC_LALT,        KC_RBRC,        KC_LEFT,        KC_DOWN,        JS_3,
                                                           KC_SPACE,       GAME_2,         KC_DELETE,                                            KC_ENTER,   GAME_2,         KC_SPACE
             ),
     [FUNCTION] = LAYOUT_moonlander(

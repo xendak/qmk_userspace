@@ -6,6 +6,8 @@ ORYX_ENABLE = no
 # KEYBOARD_SHARED_EP = yes
 SPACE_CADET_ENABLE = no
 # DEBOUNCE_TYPE = sym_eager_pk
+JOYSTICK_ENABLE = yes
+JOYSTICK_DRIVER = digital
 
 LTO_ENABLE = yes
 OPT = fast
