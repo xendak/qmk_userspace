@@ -635,7 +635,7 @@ void matrix_scan_user(void) {
         case 4: {
             // SNARL
             if (timer_elapsed(key_timer) > 60) {
-                blaster_snarl();
+                blaster_new_snarl();
                 key_timer = timer_read32();
             }
 

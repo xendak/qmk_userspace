@@ -235,6 +235,18 @@ void blaster_snarl(void) {
 //     );
 // }
 
+void blaster_new_snarl(void) {
+        SEND_STRING(
+            SS_DOWN(X_X) SS_DELAY(5)
+            SS_DOWN(X_K) SS_DELAY(60) SS_UP(X_K) SS_DELAY(90)
+            SS_DOWN(X_J) SS_DELAY(30) SS_UP(X_J) SS_DELAY(146)
+            SS_UP(X_X)
+            SS_DELAY(73)
+            // SS_DELAY(6) SS_DOWN(X_JMP) SS_DELAY(20) SS_UP(X_JMP)
+        );
+}
+
+
 void gms_blaster_snarl(void) {
     SEND_STRING(
         SS_DOWN(X_X)

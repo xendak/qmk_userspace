@@ -19,42 +19,35 @@ zm ⇒ zim
 zze ⇒ ize
 
 // something for p
-pfz ⇒ phy
-pz  ⇒ ps
-zp  ⇒ sp
-zzp ⇒ zp
+// pfz ⇒ phy
+// pz  ⇒ ps
+// zp  ⇒ sp
+// zzp ⇒ zp
 
-// FIX: a->w, e->w, (mwodify?)w->h->
+// bp | pb ?
+
 
 // help for my ym tm mt
 mz  ⇒ my
 my  ⇒ mz
 
-tz  ⇒ ty
-ty  ⇒ tz
-
-zt  ⇒ yt
-yt  ⇒ zt
+// zt  ⇒ yt
+// yt  ⇒ zt
 
 kz  ⇒ ky
 ky  ⇒ kz
 
-// help with k
-xey  ⇒ key
-key  ⇒ xey
-
-
 // helping with X
-exx ⇒ exp
-axx ⇒ axp
-oxx ⇒ oxp
-ixx ⇒ ixp
-uxx ⇒ uxp
-exxz ⇒ exx
-axxz ⇒ axx
-ixxz ⇒ ixx
-uxxz ⇒ uxx
-oxxz ⇒ oxx
+// exx ⇒ exp
+// axx ⇒ axp
+// oxx ⇒ oxp
+// ixx ⇒ ixp
+// uxx ⇒ uxp
+// exxz ⇒ exx
+// axxz ⇒ axx
+// ixxz ⇒ ixx
+// uxxz ⇒ uxx
+// oxxz ⇒ oxx
 
 qe  ⇒ que
 qa  ⇒ qua
