@@ -49,19 +49,19 @@ ky  ⇒ kz
 // uxxz ⇒ uxx
 // oxxz ⇒ oxx
 
-qe  ⇒ que
-qa  ⇒ qua
-qi  ⇒ qui
-qo  ⇒ quo
+// qe  ⇒ que
+// qa  ⇒ qua
+// qi  ⇒ qui
+// qo  ⇒ quo
 
-quu  ⇒ qu
-qaa  ⇒ qa
-qee  ⇒ qe
-qii  ⇒ qi
-qoo  ⇒ qo
+// quu  ⇒ qu
+// qaa  ⇒ qa
+// qee  ⇒ qe
+// qii  ⇒ qi
+// qoo  ⇒ qo
 
 // for *queen
-qqe  ⇒ quee
+// qqe  ⇒ quee
 
 didnt⎵     ⇒ didn't⎵
 youre⎵     ⇒ you're⎵

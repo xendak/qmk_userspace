@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        LT(F_, KC_COMMA),  KC_N,          KC_S,            KC_H,           KC_T,           KC_M,           KC_ENTER,           KC_ENTER,         KC_C,       KC_D,           KC_A,           KC_E,           KC_I,          LT(F_, KC_QUOT),
             KC_LSFT,      KC_P,          KC_X,            KC_J,           KC_Y,           KC_Q,                                                 KC_SLASH,   KC_G,           KC_SCLN,        KC_UNDS,        KC_Z,           KC_RSFT,
             KC_LCTL,      KC_RIGHT,      KC_DOWN,         KC_LGUI,        KC_LALT,        MO(F_),                                               MO(F_),     KC_RALT,        KC_RGUI,        KC_SCLN,        KC_SCLN,        KC_RCTL,
-                                                      LT(S_, KC_R),       KC_LSFT,        KC_LCTL,                                              KC_DEL,  RSFT_T(KC_ENTER),  LT(S_, KC_SPACE)
+                                                      LT(S_, KC_R),       KC_LSFT,        KC_LCTL,                                              KC_ENTER,   KC_RSFT,  LT(S_, KC_SPACE)
             ),
     [GAMES] = LAYOUT_moonlander(
             KC_ESCAPE,    ______,         ______,         ______,         ______,         ______,         ______,             ______,           ______,     ______,         ______,         ______,         ______,         JS_0,
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        LT(F_,KC_DOT),     KC_LSFT,       KC_LEFT,         KC_DOWN,        KC_RIGHT,       KC_L,           KC_H,               ______,           KC_J,       KC_A,           KC_S,           KC_D,           KC_F,           KC_ENTER,
             KC_B,         KC_M,          KC_COMMA,        KC_K,           KC_N,           KC_G,                                                 KC_H,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_QUOTE,
             KC_Y,         KC_SCLN,       KC_GRAVE,        KC_LGUI,        KC_LALT,        ______,                                               ______,     KC_LALT,        ______,         ______,         ______,         ______,
-                                                          KC_SPACE,       KC_ENTER,       KC_DEL,                                               ______,     KC_ENTER,       KC_COMMA
+                                                          KC_SPACE,       KC_ENTER,       KC_DEL,                                               KC_DEL,     KC_ENTER,       KC_COMMA
             ),
     [BLASTER] = LAYOUT_moonlander(
             KC_ESCAPE,    ______,        ______,          ______,         ______,         ______,         ______,             ______,           ______,     ______,         ______,         ______,         ______,         ______,
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        LT(F_,KC_DOT),     KC_LSFT,       KC_LEFT,         KC_DOWN,        KC_RIGHT,       KC_L,           KC_H,               ______,           KC_J,       BLASTER_A,      B_SKATE,        BLASTER_D,      KC_F,           KC_ENTER,
             KC_B,         KC_M,          KC_E,            KC_R,           B_SMAG,         B_FSMAG,                                              KC_Z,       BLASTER_M,      KC_X,           KC_C,           KC_V,           KC_QUOTE,
             KC_Y,         KC_SCLN,       KC_GRAVE,        KC_LGUI,        KC_LALT,        MO(F_),                                               MO(F_),     KC_LALT,        B_SNARL,        ______,         ______,         ______,
-                                                          KC_SPACE,       KC_ENTER,       KC_DEL,                                               ______,     KC_ENTER,       BLASTER_DOUBLE_JUMP
+                                                          KC_SPACE,       KC_ENTER,       KC_DEL,                                               KC_DEL,     KC_ENTER,       BLASTER_DOUBLE_JUMP
             ),
     [SYMBOLS] = LAYOUT_moonlander(
             KC_GRAVE,     KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_4,        KC_KP_5,        KC_EQUAL,           KC_MINUS,         KC_KP_6,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_0,        KC_ESCAPE,
