@@ -63,30 +63,30 @@ ky  ⇒ kz
 // for *queen
 // qqe  ⇒ quee
 
-didnt⎵     ⇒ didn't⎵
-youre⎵     ⇒ you're⎵
-theyre⎵    ⇒ they're⎵
-wont⎵      ⇒ won't⎵
-cant⎵      ⇒ can't⎵
-dont⎵      ⇒ don't⎵
+⎵didnt⎵     ⇒ ⎵didn't⎵
+⎵youre⎵     ⇒ ⎵you're⎵
+⎵theyre⎵    ⇒ ⎵they're⎵
+⎵wont⎵      ⇒ ⎵won't⎵
+⎵cant⎵      ⇒ ⎵can't⎵
+⎵dont⎵      ⇒ ⎵don't⎵
 
-Didnt⎵     ⇒ Didn't⎵
-Youre⎵     ⇒ You're⎵
-Theyre⎵    ⇒ They're⎵
-Wont⎵      ⇒ Won't⎵
-Cant⎵      ⇒ Can't⎵
-Dont⎵      ⇒ Don't⎵
+⎵Didnt⎵     ⇒ ⎵Didn't⎵
+⎵Youre⎵     ⇒ ⎵You're⎵
+⎵Theyre⎵    ⇒ ⎵They're⎵
+⎵Wont⎵      ⇒ ⎵Won't⎵
+⎵Cant⎵      ⇒ ⎵Can't⎵
+⎵Dont⎵      ⇒ ⎵Don't⎵
 
-didnt'⎵     ⇒ didnt⎵
-youre'⎵     ⇒ youre⎵
-theyre'⎵    ⇒ theyre⎵
-wont'⎵      ⇒ wont⎵
-cant'⎵      ⇒ cant⎵
-dont'⎵      ⇒ dont⎵
+⎵didnt'⎵     ⇒ ⎵didnt⎵
+⎵youre'⎵     ⇒ ⎵youre⎵
+⎵theyre'⎵    ⇒ ⎵theyre⎵
+⎵wont'⎵      ⇒ ⎵wont⎵
+⎵cant'⎵      ⇒ ⎵cant⎵
+⎵dont'⎵      ⇒ ⎵dont⎵
 
-Didnt'⎵     ⇒ Didnt⎵
-Youre'⎵     ⇒ Youre⎵
-Theyre'⎵    ⇒ Theyre⎵
-Wont'⎵      ⇒ Wont⎵
-Cant'⎵      ⇒ Cant⎵
-Dont'⎵      ⇒ Dont⎵
+⎵Didnt'⎵     ⇒ ⎵Didnt⎵
+⎵Youre'⎵     ⇒ ⎵Youre⎵
+⎵Theyre'⎵    ⇒ ⎵Theyre⎵
+⎵Wont'⎵      ⇒ ⎵Wont⎵
+⎵Cant'⎵      ⇒ ⎵Cant⎵
+⎵Dont'⎵      ⇒ ⎵Dont⎵
