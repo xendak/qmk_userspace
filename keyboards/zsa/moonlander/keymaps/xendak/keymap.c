@@ -112,6 +112,19 @@ struct key_list kk;
 #include "../../../../shared/rand.h"
 // #include "helper_maplestory.c"
 
+// overrides
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t underscore_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_UNDS, KC_MINUS);
+const key_override_t semicolon_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SCLN, KC_COLN);
+const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMMA, KC_QUES);
+
+const key_override_t *key_overrides[] = {
+	&delete_key_override,
+    &underscore_key_override,
+    &semicolon_key_override,
+    &comma_key_override,
+};
+
 bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HM_S:
@@ -136,7 +149,7 @@ bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) 
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
-        case MAIN50: case MAIN51: case MAIN52: case MAIN53: case MAIN54:// case MAIN55: case MAIN56: case MAIN57: case MAIN58: case MAIN59: case MAIN60:
+        case MAIN1:
             return 30;
         case BLASTER1:
         case BLASTER2:
@@ -145,8 +158,13 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case ALL_MAPLE1:
             return 110;
     }
-    if (combo->keys[0] == LT(S_, KC_SPACE) || combo->keys[0] == LT(S_, KC_R) || combo->keys[0] == LT(S_, KC_NO)) { // if first key in the array is Enter
-        return 30;
+    switch(combo->keys[0]) {
+        case LT(S_, KC_R):
+        case LT(S_, KC_SPACE):
+        case LT(S_, KC_NO):
+        case KC_R:
+        case KC_SPACE:
+            return 30;
     }
 
     return COMBO_TERM;
@@ -184,27 +202,15 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
     switch (combo_index) {
-        case MAIN01: case MAIN02: case MAIN03: case MAIN04: case MAIN05: case MAIN06: case MAIN07: case MAIN08: case MAIN09: case MAIN10:
+        case MAIN1: case MAIN2: case MAIN3: case MAIN4: case MAIN5: case MAIN6: case MAIN7: case MAIN8: case MAIN9: case MAIN10:
         case MAIN11: case MAIN12: case MAIN13: case MAIN14: case MAIN15: case MAIN16: case MAIN17: case MAIN18: case MAIN19: case MAIN20:
         case MAIN21: case MAIN22: case MAIN23: case MAIN24: case MAIN25: case MAIN26: case MAIN27: case MAIN28: case MAIN29: case MAIN30:
-        case MAIN31: case MAIN32: case MAIN33: case MAIN34: case MAIN35: case MAIN36: case MAIN37: case MAIN38: case MAIN39: case MAIN40:
-        case MAIN41: case MAIN42: case MAIN43: case MAIN44: case MAIN45: case MAIN46: case MAIN47: case MAIN48: case MAIN49: case MAIN50:
-        case MAIN51: case MAIN52: case MAIN53: case MAIN54:// case MAIN55: case MAIN56: case MAIN57: case MAIN58: case MAIN59: case MAIN60:
+        case MAIN31: case MAIN32: case MAIN33:
             if (get_highest_layer(layer_state) == RAIN) return true;
             else { break; }
-        // MAPLE_COMBOS
-        // case ALL_MAPLE1:
-        // case ALL_MAPLE2:
-        //     if (get_highest_layer(layer_state) == BLASTER ||
-        //         get_highest_layer(layer_state) == MAPLE)
-        //         return true;
-        //     else { break; }
         case MAPLE1: case MAPLE2:
             if (get_highest_layer(layer_state) == MAPLE) return true;
             else { break; }
-        // case BLASTER1: case BLASTER2:
-        //     if (get_highest_layer(layer_state) == BLASTER) return true;
-        //     else { break; }
     }
     return false;
 }

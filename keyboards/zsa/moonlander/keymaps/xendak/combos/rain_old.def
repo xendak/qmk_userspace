@@ -1,0 +1,68 @@
+// LEFT
+COMB(MAIN01,  S(KC_B)       , KC_B              , LT(S_, KC_R)       )
+COMB(MAIN02,  S(KC_F)       , KC_F              , LT(S_, KC_R)       )
+COMB(MAIN03,  S(KC_L)       , KC_L              , LT(S_, KC_R)       )
+COMB(MAIN04,  S(KC_K)       , KC_K              , LT(S_, KC_R)       )
+COMB(MAIN05,  S(KC_V)       , KC_V              , LT(S_, KC_R)       )
+
+COMB(MAIN06,  S(KC_SLASH)   , LT(F_, KC_COMMA)  , LT(S_, KC_R)       )
+COMB(MAIN07,  S(KC_N)       , KC_N              , LT(S_, KC_R)       )
+COMB(MAIN08,  S(KC_S)       , KC_S              , LT(S_, KC_R)       )
+COMB(MAIN09,  S(KC_H)       , KC_H              , LT(S_, KC_R)       )
+COMB(MAIN10,  S(KC_T)       , KC_T              , LT(S_, KC_R)       )
+COMB(MAIN11,  S(KC_M)       , KC_M              , LT(S_, KC_R)       )
+
+COMB(MAIN12,  S(KC_P)       , KC_P              , LT(S_, KC_R)       )
+COMB(MAIN13,  S(KC_X)       , KC_X              , LT(S_, KC_R)       )
+COMB(MAIN14,  S(KC_J)       , KC_J              , LT(S_, KC_R)       )
+COMB(MAIN15,  S(KC_Y)       , KC_Y              , LT(S_, KC_R)       )
+COMB(MAIN16,  S(KC_Q)       , KC_Q              , LT(S_, KC_R)       )
+
+COMB(MAIN17,  KC_PERC       , LT(S_,KC_SPACE)   , KC_N               )
+COMB(MAIN18,  KC_LPRN       , LT(S_,KC_SPACE)   , KC_S               )
+COMB(MAIN19,  KC_HASH       , LT(S_,KC_SPACE)   , KC_H               )
+COMB(MAIN20,  KC_RPRN       , LT(S_,KC_SPACE)   , KC_T               )
+COMB(MAIN21,  KC_BSLS       , LT(S_,KC_SPACE)   , KC_P               )
+COMB(MAIN22,  KC_LCBR       , LT(S_,KC_SPACE)   , KC_X               )
+COMB(MAIN23,  KC_DQUO       , LT(S_,KC_SPACE)   , KC_J               )
+COMB(MAIN24,  KC_RCBR       , LT(S_,KC_SPACE)   , KC_Y               )
+
+// RIGHT
+COMB(MAIN25,  KC_GRAVE      , MY_TILD           , LT(S_, KC_SPACE)   )
+COMB(MAIN26,  S(KC_W)       , KC_W              , LT(S_, KC_SPACE)   )
+COMB(MAIN27,  S(KC_O)       , KC_O              , LT(S_, KC_SPACE)   )
+COMB(MAIN28,  S(KC_U)       , KC_U              , LT(S_, KC_SPACE)   )
+COMB(MAIN29,  S(KC_DOT)     , KC_DOT            , LT(S_, KC_SPACE)   ) // CAN BE CHANGED.
+
+COMB(MAIN30,  S(KC_C)       , KC_C              , LT(S_, KC_SPACE)   )
+COMB(MAIN31,  S(KC_D)       , KC_D              , LT(S_, KC_SPACE)   )
+COMB(MAIN32,  S(KC_A)       , KC_A              , LT(S_, KC_SPACE)   )
+COMB(MAIN33,  S(KC_E)       , KC_E              , LT(S_, KC_SPACE)   )
+COMB(MAIN34,  S(KC_I)       , KC_I              , LT(S_, KC_SPACE)   )
+COMB(MAIN35,  S(KC_DQUO)    , LT(F_, KC_QUOT)   , LT(S_, KC_SPACE)   ) // CAN BE CHANGED.
+
+COMB(MAIN36,  KC_BSLS       , KC_SLASH          , LT(S_, KC_SPACE)   )
+COMB(MAIN37,  S(KC_G)       , KC_G              , LT(S_, KC_SPACE)   )
+COMB(MAIN38,  S(KC_SCLN)    , KC_SCLN           , LT(S_, KC_SPACE)   )
+COMB(MAIN39,  KC_MINUS      , KC_UNDS           , LT(S_, KC_SPACE)   )
+COMB(MAIN40,  S(KC_Z)       , KC_Z              , LT(S_, KC_SPACE)   )
+
+COMB(MAIN41,  KC_COLN       , LT(S_, KC_R)      , KC_D               )
+COMB(MAIN42,  KC_KP_PLUS    , LT(S_, KC_R)      , KC_I               )
+COMB(MAIN43,  KC_MINUS      , LT(S_, KC_R)      , KC_E               )
+COMB(MAIN44,  KC_UNDS       , LT(S_, KC_R)      , KC_A               )
+COMB(MAIN45,  KC_EQUAL      , LT(S_, KC_R)      , KC_G               )
+COMB(MAIN46,  KC_LT         , LT(S_, KC_R)      , KC_SCLN            )
+COMB(MAIN47,  KC_GT         , LT(S_, KC_R)      , KC_UNDS            )
+COMB(MAIN48,  KC_EXLM       , LT(S_, KC_R)      , KC_Z               )
+
+// left handed symbols top layer
+COMB(MAIN49,  KC_BSLS       , LT(S_, KC_SPACE)  , KC_B           )
+COMB(MAIN50,  KC_LBRC       , LT(S_, KC_SPACE)  , KC_F           )
+COMB(MAIN51,  KC_AT         , LT(S_, KC_SPACE)  , KC_L           )
+COMB(MAIN52,  KC_RBRC       , LT(S_, KC_SPACE)  , KC_K           )
+
+COMB(MAIN53,  KC_ENTER      , KC_D, KC_A, KC_E)
+
+// SHIFT SPACE R
+COMB(MAIN54,  S(KC_R)       , LT(S_, KC_R)      , LT(S_, KC_SPACE)   )

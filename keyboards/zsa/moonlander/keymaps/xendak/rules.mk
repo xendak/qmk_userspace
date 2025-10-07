@@ -8,7 +8,6 @@ SPACE_CADET_ENABLE = no
 # DEBOUNCE_TYPE = sym_eager_pk
 JOYSTICK_ENABLE = yes
 JOYSTICK_DRIVER = digital
-
 LTO_ENABLE = yes
 OPT = fast
 
@@ -25,6 +24,7 @@ LEADER_ENABLE = no
 STENO_ENABLE = no
 CAPS_WORD_ENABLE = yes
 REPEAT_KEY_ENABLE = no
+KEY_OVERRIDE_ENABLE = yes
 
 
 VPATH += keyboards/gboards
