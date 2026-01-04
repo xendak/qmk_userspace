@@ -467,7 +467,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
 
         case SBIT:
-            key_held = !key_held;
+            if (record->event.pressed) {
+                key_held = !key_held;
+            }
             return false;
         case PWM:
             return pwm_1(record);
@@ -614,9 +616,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void matrix_scan_user(void) {
     sequence_transform_task();
     // achordion_task();
-    if (key_held && timer_elapsed(key_timer) > 300) {
+    if (key_held && timer_elapsed(key_timer) > 1700) {
         // helper_maplestory()
-        tap_code16(KC_S);
+        register_code(KC_S);
+        wait_ms(700 + (rand() % 500));
+        unregister_code(KC_S);
+
         key_timer = timer_read32();
     }
     switch (key_trigger) {
