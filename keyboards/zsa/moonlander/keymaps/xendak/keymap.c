@@ -53,6 +53,7 @@ enum custom_keycodes {
     KEYUP,
     KEYDN,
     SBIT,
+    RBIT,
     MY_LGUI,
     MY_LALT,
     MY_RALT,
@@ -92,6 +93,7 @@ enum custom_keycodes {
 static uint16_t key_trigger = 0;
 static bool     key_held    = false;
 static uint16_t key_timer   = 0;
+static uint16_t key_delay   = 3500;
 static bool     weave       = false;
 
 #define BSPC_MAX_LENGTH 30
@@ -469,6 +471,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case SBIT:
             if (record->event.pressed) {
                 key_held = !key_held;
+                if (key_held) {
+                    register_code(KC_S);
+                } else {
+                    unregister_code(KC_S);
+                }
+            }
+            return false;
+        case RBIT:
+            if (record->event.pressed) {
+                key_trigger = key_trigger > 10 ? 0 : 11;
             }
             return false;
         case PWM:
@@ -613,17 +625,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+
+bool rgb_matrix_indicators_user(void) {
+    if (key_held || key_trigger > 10) {
+        rgb_matrix_set_color_all(255, 0, 0);
+    }
+    return false;
+}
+
 void matrix_scan_user(void) {
     sequence_transform_task();
     // achordion_task();
-    if (key_held && timer_elapsed(key_timer) > 1700) {
+    if (key_trigger > 10 && timer_elapsed(key_timer) > key_delay) {
         // helper_maplestory()
-        register_code(KC_S);
-        wait_ms(700 + (rand() % 500));
-        unregister_code(KC_S);
+        tap_code(KC_A);
+        key_delay = (3500 + (rand() % 250));
 
         key_timer = timer_read32();
     }
+
     switch (key_trigger) {
         // NRL_BOB
         case 1: {
