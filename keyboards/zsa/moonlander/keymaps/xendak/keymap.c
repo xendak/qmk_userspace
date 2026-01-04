@@ -13,8 +13,9 @@
 #define HM_T RALT_T(KC_T)
 #define HM_A LALT_T(KC_A)
 
-#define HM_I RSFT_T(KC_I)
-#define HM_N LSFT_T(KC_N)
+#define HMRS RSFT_T(KC_G)
+#define HMLS LSFT_T(KC_Y)
+
 //#define THUMBR2 LCTL_T(KC_SCLN)
 #define THUMBR2 US_MAG2
 
@@ -129,8 +130,8 @@ bool get_hold_on_other_key_press_per_key(uint16_t keycode, keyrecord_t *record) 
     switch (keycode) {
         case HM_S:
         case HM_H:
-        case HM_N:
-        case HM_I:
+        case HMLS:
+        case HMRS:
         case HM_R:
         case HM_E:
         case HM_A:
@@ -174,8 +175,8 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HM_E:
         case HM_A:
-        case HM_I:
-        case HM_N:
+        case HMRS:
+        case HMLS:
             return QUICK_TAP_TERM;
         default:
             return 0;
@@ -186,14 +187,16 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MY_RIGHP:
         case MY_LEFTP:
+        case OSM(MOD_LSFT):
+        case OSM(MOD_RSFT):
         case LT(F_, KC_F):
         case LT(F_, KC_Y):
         case LT(F_, KC_SCLN):
             return TAPPING_TERM + 40;
         case LT(S_, KC_R):
         case LT(S_, KC_SPACE):
-        case HM_I:
-        case HM_N:
+        case HMRS:
+        case HMLS:
             return TAPPING_TERM + 1;
         default:
             return TAPPING_TERM;
@@ -205,7 +208,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
         case MAIN1: case MAIN2: case MAIN3: case MAIN4: case MAIN5: case MAIN6: case MAIN7: case MAIN8: case MAIN9: case MAIN10:
         case MAIN11: case MAIN12: case MAIN13: case MAIN14: case MAIN15: case MAIN16: case MAIN17: case MAIN18: case MAIN19: case MAIN20:
         case MAIN21: case MAIN22: case MAIN23: case MAIN24: case MAIN25: case MAIN26: case MAIN27: case MAIN28: case MAIN29: case MAIN30:
-        case MAIN31: case MAIN32: case MAIN33:
+        case MAIN31: case MAIN32: case MAIN33: case MAIN34: case MAIN35:
             if (get_highest_layer(layer_state) == RAIN) return true;
             else { break; }
         case MAPLE1: case MAPLE2:
@@ -217,7 +220,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 
 bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
     // switch (tap_hold_keycode) {
-    //     case HM_I:
+    //     case HMRS:
     //         switch(other_keycode) {
     //             case KC_S:
     //             case KC_H:
@@ -226,7 +229,7 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, u
     //         }
     //     break;
 
-    //     case HM_N:
+    //     case HMLS:
     //         switch(other_keycode) {
     //             case KC_E:
     //             case KC_A:
@@ -311,12 +314,12 @@ bool process_magic_key(uint16_t prev_keycode, uint8_t prev_mods) {
             SEND_STRING("p");
             return false;
         case KC_I:
-        case HM_I:
+        case HMRS:
             SEND_STRING("'");
             return false;
         case KC_T:
         case KC_N:
-        case HM_N:
+        case HMLS:
             SEND_STRING("'");
             return false;
         case MY_BSPC:
@@ -464,7 +467,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return true;
 
         case SBIT:
-            if (record->event.pressed) send_byte(get_highest_layer(layer_state));
+            key_held = !key_held;
             return false;
         case PWM:
             return pwm_1(record);
@@ -609,10 +612,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void matrix_scan_user(void) {
-    sequence_transform_task();  // Add this line
+    sequence_transform_task();
     // achordion_task();
-    if (key_held && timer_elapsed(key_timer) > 60) {
-        // helper_maplestory();
+    if (key_held && timer_elapsed(key_timer) > 300) {
+        // helper_maplestory()
+        tap_code16(KC_S);
         key_timer = timer_read32();
     }
     switch (key_trigger) {

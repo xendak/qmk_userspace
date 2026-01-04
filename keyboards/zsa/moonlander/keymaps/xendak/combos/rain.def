@@ -38,3 +38,6 @@ COMB(MAIN31,     KC_EXLM,        KC_SPACE,        KC_Z)
 // Pinky Keys Extended
 COMB(MAIN32,     KC_QUES,        KC_R,            LT(F_, KC_COMMA))
 COMB(MAIN33,     KC_DQUO,        KC_SPACE,        LT(F_, KC_QUOT))
+
+COMB(MAIN34,     KC_RCBR,        KC_R,            HMRS)
+COMB(MAIN35,     KC_EQUAL,       KC_SPACE,        HMLS)

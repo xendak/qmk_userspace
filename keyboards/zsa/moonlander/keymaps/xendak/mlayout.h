@@ -22,9 +22,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_ESCAPE,    KC_1,          KC_2,            KC_3,           KC_4,           KC_5,           RGB_SAI,            RGB_VAI,          KC_6,       KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,
             KC_TAB,       KC_B,          KC_F,            KC_L,           KC_K,           KC_V,           RGB_HUI,            RGB_HUI,          MY_TILD,    KC_W,           KC_O,           KC_U,           KC_DOT,         KC_DEL,
        LT(F_, KC_COMMA),  KC_N,          KC_S,            KC_H,           KC_T,           KC_M,           KC_ENTER,           KC_ENTER,         KC_C,       KC_D,           KC_A,           KC_E,           KC_I,           LT(F_, KC_QUOT),
-            KC_LSFT,      KC_P,          KC_X,            KC_J,           KC_Y,           KC_Q,                                                 KC_SLASH,   KC_G,           KC_SCLN,        KC_UNDS,        KC_Z,           KC_RSFT,
-            KC_LCTL,      KC_RIGHT,      KC_DOWN,         KC_LGUI,        KC_LALT,        OSL(F_),                                              OSL(F_),     KC_RALT,        KC_RGUI,        KC_SCLN,        KC_SCLN,        KC_RCTL,
-                                                          KC_R,          OSM(MOD_LSFT),   KC_LCTL,                                              KC_ENTER,   OSM(MOD_RSFT),  KC_SPACE
+            KC_LSFT,      KC_P,          KC_X,            KC_J,           HMLS,           KC_Q,                                                 KC_SLASH,   HMRS,           KC_SCLN,        KC_UNDS,        KC_Z,           KC_RSFT,
+            KC_LCTL,      KC_RIGHT,      KC_DOWN,         KC_LGUI,        KC_LALT,        OSL(F_),                                              OSL(F_),    KC_RALT,        KC_RGUI,        KC_SCLN,        KC_SCLN,        KC_RCTL,
+                                                          KC_R,           OSM(MOD_LSFT),  KC_LCTL,                                              KC_ENTER,   OSM(MOD_RSFT),  KC_SPACE
             ),
     [GAMES] = LAYOUT_moonlander(
             KC_ESCAPE,    ______,         ______,         ______,         ______,         ______,         ______,             ______,           ______,     ______,         ______,         ______,         ______,         JS_0,
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,       KC_I,          KC_U,            KC_UP,          KC_O,           KC_P,           KC_T,               ______,           KC_LCTL,    KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,
        LT(F_,KC_DOT),     KC_LSFT,       KC_LEFT,         KC_DOWN,        KC_RIGHT,       KC_L,           KC_H,               ______,           KC_J,       KC_A,           KC_S,           KC_D,           KC_F,           KC_ENTER,
             KC_B,         KC_M,          KC_COMMA,        KC_K,           KC_N,           KC_G,                                                 KC_H,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_QUOTE,
-            KC_Y,         KC_SCLN,       KC_GRAVE,        KC_LGUI,        KC_LALT,        ______,                                               ______,     KC_LALT,        ______,         ______,         ______,         ______,
+            KC_Y,         KC_SCLN,       KC_GRAVE,        KC_LGUI,        KC_LALT,        ______,                                               ______,     KC_LALT,        ______,         SBIT,           ______,         ______,
                                                           KC_SPACE,       KC_ENTER,       KC_DEL,                                               KC_DEL,     KC_ENTER,       KC_COMMA
             ),
     [BLASTER] = LAYOUT_moonlander(

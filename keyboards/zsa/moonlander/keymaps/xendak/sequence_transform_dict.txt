@@ -16,13 +16,8 @@ zn ⇒ zin
 zg ⇒ zig
 zm ⇒ zim
 
-zze ⇒ ize
-
-// something for p
-// pfz ⇒ phy
-// pz  ⇒ ps
-// zp  ⇒ sp
-// zzp ⇒ zp
+iz ⇒ ize
+izz ⇒ iz
 
 // bp | pb ?
 
@@ -30,38 +25,8 @@ zze ⇒ ize
 // help for my ym tm mt
 mz  ⇒ my
 my  ⇒ mz
-
-// zt  ⇒ yt
-// yt  ⇒ zt
-
 kz  ⇒ ky
 ky  ⇒ kz
-
-// helping with X
-// exx ⇒ exp
-// axx ⇒ axp
-// oxx ⇒ oxp
-// ixx ⇒ ixp
-// uxx ⇒ uxp
-// exxz ⇒ exx
-// axxz ⇒ axx
-// ixxz ⇒ ixx
-// uxxz ⇒ uxx
-// oxxz ⇒ oxx
-
-// qe  ⇒ que
-// qa  ⇒ qua
-// qi  ⇒ qui
-// qo  ⇒ quo
-
-// quu  ⇒ qu
-// qaa  ⇒ qa
-// qee  ⇒ qe
-// qii  ⇒ qi
-// qoo  ⇒ qo
-
-// for *queen
-// qqe  ⇒ quee
 
 ⎵didnt⎵     ⇒ ⎵didn't⎵
 ⎵youre⎵     ⇒ ⎵you're⎵
